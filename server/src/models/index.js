@@ -1,3 +1,3 @@
-import sequelize from "../config/connections";
+import sequelize from "../config/connection";
 
 export {sequelize};
