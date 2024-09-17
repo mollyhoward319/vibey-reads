@@ -7,230 +7,107 @@ class Music extends Model{
                 playlist_id: {
                     type: dataTypes.STRING,
                     primaryKey: true,
-                }, 
+                    }, 
                 playlist_name: {
                     type: dataTypes.STRING,
-                },
+                    },
                 playlist_description: {
                     type: dataTypes.STRING,
-                },
+                    },
                 playlist_images: {
                     type: dataTypes.STRING,
-                },
+                    },
                 playlist_owner: {
                     type: dataTypes.OBJECT,
-                },
+                    },
+                playlist_owner_externals_urls: {
+                    type: dataTypes.OBJECT,
+                    },
                 playlist_tracks: {
-                    type: dataTypes.OBJECT,
+                    type: dataTypes.OBJECT,  
                 },
-                album_id: {
-                    type: dataTypes.STRING,
-                },
-                album_name: {
-                    type: dataTypes.STRING,
-                },
-                album_total_tracks: {
+                recommendations_limit: {
                     type: dataTypes.INTEGER,
-                },
-                album_artists_external_urls: {
-                    type: dataTypes.OBJECT,
-                },
-                album_artists_href: {
-                    type: dataTypes.STRING,
-                },
-                album_artists_id: {
-                    type: dataTypes.STRING,
-                },
-                album_artists_type: {
-                    type: dataTypes.STRING,
-                },
-                album_tracks_href: {
-                    type: dataTypes.STRING,
-                },
-                album_tracks_external_ids_upc: {
-                    type: dataTypes.STRING,
-                },
-                album_genres: {
-                    type: dataTypes.ARRAY,
-                },
-                album_release_date: {
-                    type: dataTypes.STRING,
-                },
-                album_popularity: {
-                    type: dataTypes.INTEGER,
-                },
-                album_images: {
-                    type: dataTypes.ARRAY,
-                },
-                album_href: {
-                    type: dataTypes.STRING,
-                },
-                artist_id: {
-                    type: dataTypes.STRING,
-                },
-                artist_name: {
-                    type: dataTypes.STRING,
-                },
-                artist_external_urls: {
-                    type: dataTypes.STRING,
-                },
-                artist_genres: {
-                    type: dataTypes.ARRAY,
-                },
-                artist_href: {
-                    type: dataTypes.STRING,
-                },
-                artist_images_url: {
-                    type: dataTypes.STRING,
-                },
-                artist_images_height: {
-                    type: dataTypes.INTEGER,
-                },
-                artist_images_width: {
-                    type: dataTypes.INTEGER,
-                },
-                artist_popularity: {
-                    type: dataTypes.INTEGER,
-                },
-                song_id: {
-                    type: dataTypes.STRING, 
                 }, 
-                song_artist: {
+                recommendations_seed_genres: {
                     type: dataTypes.STRING,
                 },
-                search_q: {
+                recommendations_seed_artists: {
                     type: dataTypes.STRING,
                 },
-                search_tracks_href: {
+                recommendations_seed_tracks: {
                     type: dataTypes.STRING,
+                }, 
+                recommendations_min_acousticness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_max_acousticness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_target_acousticness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_min_danceability: {
+                    type: dataTypes.NUMBER,
                 },
-                search_tracks_next: {
-                    type: dataTypes.STRING,
-                },
-                search_tracks_previous: {
-                    type: dataTypes.STRING,
-                },
-                search_artists_href: {
-                    type: dataTypes.STRING,
-                },
-                search_artists_next: {
-                    type: dataTypes.STRING,
-                },
-                search_artists_previous: {
-                    type: dataTypes.STRING,
-                },
-                search_artists_items: {
-                    type: dataTypes.ARRAY,
-                },
-                search_albums_href: {
-                    type: dataTypes.STRING,
-                },
-                search_albums_next: {
-                    type: dataTypes.STRING,
-                },
-                search_albums_previous: {
-                    type: dataTypes.STRING,
-                },
-                search_albums_items: {
-                    type: dataTypes.STRING,
-                },
-                search_albums_external_urls: {
-                    type: dataTypes.OBJECT,
-                },
-                track_id: {
-                    type: dataTypes.STRING,
-                },
-                track_album: {
-                    type: dataTypes.STRING,
-                },
-                track_total_tracks: {
+                recommendations_max_danceability: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_target_danceability: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_min_duration_ms: {
+                    type: dataTypes.INTGER,
+                }, 
+                recommendations_max_duration_ms: {
+                    type: dataTypes.INTEGER,
+                }, 
+                recommendations_target_duration_ms: {
+                    type: dataTypes.INTEGER,
+                }, 
+                recommendations_min_energy: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_max_energy: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_target_energy: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_min_instrumentalness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_max_instrumentalness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_target_instrumentalness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_min_key: {
+                    type: dataTypes.INTEGER,
+                }, 
+                recommendations_target_key: {
+                    type: dataTypes.INTEGER,
+                }, 
+                recommendations_min_loudness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_max_loudness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_target_loudness: {
+                    type: dataTypes.NUMBER,
+                }, 
+                recommendations_min_popularity: {
+                    type: dataTypes.INTEGER,
+                }, 
+                recommendations_max_popularity: {
                     type: dataTypes.INTEGER,
                 },
-                track_external_urls: {
-                    type: dataTypes.OBJECT,
-                },
-                track_href: {
-                    type: dataTypes.STRING,
-                },
-                track_images_url: {
-                    type: dataTypes.STRING,
-                },
-                track_images_height: {
-                    type: dataTypes.INTEGER,
-                },
-                track_images_width: {
-                    type: dataTypes.INTEGER,
-                },
-                track_name: {
-                    type: dataTypes.STRING,
-                },
-                track_release_date: {
-                    type: dataTypes.STRING,
-                },
-                track_artist_external_urls: {
-                    type: dataTypes.OBJECT,
-                },
-                track_href: {
-                    type: dataTypes.STRING,
-                },
-                track_id: {
-                    type: dataTypes.STRING,
-                },
-                track_name: {
-                    type: dataTypes.STRING,
-                },
-                track_type: {
-                    type: dataTypes.STRING,
-                },
-                track_artists_external_urls: {
-                    type: dataTypes.OBJECT,
-                },
-                track_artists_href: {
-                    type: dataTypes.STRING,
-                },
-                track_artists_name: {
-                    type: dataTypes.STRING,
-                },
-                track_artists_id: {
-                    type: dataTypes.STRING,
-                },
-                track_artists_type: {
-                    type: dataTypes.STRING,
-                },
-                track_duration_ms: {
-                    type: dataTypes.INTEGER,
-                },
-                track_explicit: {
-                    type: dataTypes.BOOLEAN,
-                },
-                track_external_ids_upc: {
-                    type: dataTypes.STRING,
-                },
-                track_href: {
-                    type: dataTypes.STRING,
-                },
-                track_id: {
-                    type: dataTypes.STRING,
-                },
-                track_name: {
-                    type: dataTypes.STRING,
-                },
-                 track_images_url: {
-                    type: dataTypes.STRING,
-                },
-                track_popularity: {
-                    type: dataTypes.INTEGER,
-                },
-                track_preview_url: {
-                    type: dataTypes.STRING,
-                },
-                track_track_number: {
-                    type: dataTypes.INTEGER,
-                },
-                track_type: {
-                    type: dataTypes.STRING,
-                },
+                
                 }
         )
     }
 }
+
+return Music;
