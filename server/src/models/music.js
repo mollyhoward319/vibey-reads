@@ -1,8 +1,8 @@
 import { Sequelize, Model, Optional} from 'sequelize';
 
 class Music extends Model{
-    static init(sequelize) {
-        super.init(
+   export function Music(sequelize) {
+    Music.init(
             {
                 playlist_id: {
                     type: dataTypes.STRING,
@@ -104,10 +104,15 @@ class Music extends Model{
                 recommendations_max_popularity: {
                     type: dataTypes.INTEGER,
                 },
-                
-                }
-        )
-    }
+                },
+    )
 }
+        {
+sequelize, 
+timestamps: false,
+underscored: true,
+freezeTableName: true,
+};
 
 return Music;
+}
