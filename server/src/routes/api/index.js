@@ -1,10 +1,10 @@
 import { Router } from 'express';
-// import { in api route } from '';
+import bookrouter from './booksroutes.js';
 
 const router = Router();
 
-// Prefix all routes defined in `bookRoutes.js` with `/books
-// router.use('/books', bookRouter);
+// Prefix all routes defined in `bookroutes.js` with `/books
+router.use('/books', bookrouter);
 
 export default router;
 
