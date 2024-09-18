@@ -1,118 +1,46 @@
-import { Sequelize, Model, Optional} from 'sequelize';
+import { Sequelize, DataTypes, Model } from 'sequelize';
 
-class Music extends Model{
-   export function Music(sequelize) {
-    Music.init(
-            {
-                playlist_id: {
-                    type: dataTypes.STRING,
-                    primaryKey: true,
-                    }, 
-                playlist_name: {
-                    type: dataTypes.STRING,
-                    },
-                playlist_description: {
-                    type: dataTypes.STRING,
-                    },
-                playlist_images: {
-                    type: dataTypes.STRING,
-                    },
-                playlist_owner: {
-                    type: dataTypes.OBJECT,
-                    },
-                playlist_owner_externals_urls: {
-                    type: dataTypes.OBJECT,
-                    },
-                playlist_tracks: {
-                    type: dataTypes.OBJECT,  
-                },
-                recommendations_limit: {
-                    type: dataTypes.INTEGER,
-                }, 
-                recommendations_seed_genres: {
-                    type: dataTypes.STRING,
-                },
-                recommendations_seed_artists: {
-                    type: dataTypes.STRING,
-                },
-                recommendations_seed_tracks: {
-                    type: dataTypes.STRING,
-                }, 
-                recommendations_min_acousticness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_max_acousticness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_target_acousticness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_min_danceability: {
-                    type: dataTypes.NUMBER,
-                },
-                recommendations_max_danceability: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_target_danceability: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_min_duration_ms: {
-                    type: dataTypes.INTGER,
-                }, 
-                recommendations_max_duration_ms: {
-                    type: dataTypes.INTEGER,
-                }, 
-                recommendations_target_duration_ms: {
-                    type: dataTypes.INTEGER,
-                }, 
-                recommendations_min_energy: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_max_energy: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_target_energy: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_min_instrumentalness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_max_instrumentalness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_target_instrumentalness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_min_key: {
-                    type: dataTypes.INTEGER,
-                }, 
-                recommendations_target_key: {
-                    type: dataTypes.INTEGER,
-                }, 
-                recommendations_min_loudness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_max_loudness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_target_loudness: {
-                    type: dataTypes.NUMBER,
-                }, 
-                recommendations_min_popularity: {
-                    type: dataTypes.INTEGER,
-                }, 
-                recommendations_max_popularity: {
-                    type: dataTypes.INTEGER,
-                },
-                },
-    )
-}
+export function Music(sequelize) {
+    class Playlist extends Model {} // Define the Playlist model
+
+    Playlist.init(
         {
-sequelize, 
-timestamps: false,
-underscored: true,
-freezeTableName: true,
-};
-
-return Music;
+            playlist_id: {
+                type: DataTypes.INTEGER, 
+                autoIncrement: true,
+                primaryKey: true,
+            },
+            name: {
+                type: DataTypes.STRING, // Playlist name
+                allowNull: false,
+            },
+            description: {
+                type: DataTypes.TEXT, // Playlist description
+            },
+            category: {
+                type: DataTypes.STRING, // Category of the playlist (e.g., love, chill, pop)
+            },
+            playlist_uri: {
+                type: DataTypes.STRING, // Spotify or another service playlist URI
+                unique: true,
+                allowNull: false,
+            },
+            total_tracks: {
+                type: DataTypes.INTEGER, // Number of tracks in the playlist
+            },
+            external_url: {
+                type: DataTypes.STRING, // External link to the playlist (e.g., Spotify link)
+            },
+            image_url: {
+                type: DataTypes.STRING, // URL for the playlist cover image
+            },
+        },
+        {
+            sequelize,
+            timestamps: false, // Disable automatic timestamps
+            underscored: true, // Use snake_case for column names
+            freezeTableName: true, // Prevent Sequelize from pluralizing table names
+        }
+    );
+    return Playlist;
 }
