@@ -27,3 +27,4 @@ const genreToMusicCategory = {
   }
 
   // this is the logic that the will result from someone selecting certain buttons. This will establish the params we input into the api endpoints for both.
+  // todo finish this

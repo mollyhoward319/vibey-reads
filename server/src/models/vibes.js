@@ -48,3 +48,6 @@ export function Vibes(sequelize) {
     );
     return Vibe;
 }
+
+
+// update the vibe model with the name they gave the vibe
