@@ -35,6 +35,15 @@ export function UserFactory(sequelize) {
           },
         },
       },
+      my_vibes: [ 
+        {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'vibes',
+            ref: 'vibe_id'
+          }
+        }
+      ],
     },
     {
       tableName: "users",

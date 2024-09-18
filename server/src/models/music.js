@@ -5,7 +5,7 @@ export function Music(sequelize) {
 
     Playlist.init(
         {
-            playlist_id: {
+            music_id: {
                 type: DataTypes.INTEGER, 
                 autoIncrement: true,
                 primaryKey: true,

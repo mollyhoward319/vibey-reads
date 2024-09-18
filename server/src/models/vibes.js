@@ -14,25 +14,25 @@ export function Vibes(sequelize) {
                 type: DataTypes.STRING,
                 references: {
                     model: Users(sequelize), // Reference the User model
-                    key: '', // The user id field in Users
+                    key: 'id', // The user id field in Users
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
             },
-            isbn: {
+            book_id: {
                 type: DataTypes.STRING,
                 references: {
                     model: Bookshelf(sequelize), // Reference the Bookshelf model
-                    key: 'industry_identifiers', // The ISBN field in Bookshelf
+                    key: 'book_id', // The ISBN field in Bookshelf
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
             },
-            playlist_uri: {
+            music_id: {  // possibly change to playlist_id (promary key)
                 type: DataTypes.STRING,
                 references: {
                     model: Music(sequelize), // Reference the Playlist model now
-                    key: 'playlist_uri', 
+                    key: 'music_id', 
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
