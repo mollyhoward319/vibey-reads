@@ -28,11 +28,11 @@ export function Vibes(sequelize) {
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
             },
-            track_uri: {
+            playlist_uri: {
                 type: DataTypes.STRING,
                 references: {
-                    model: Music(sequelize), // Reference the Music model
-                    key: '', // The URI field in Music
+                    model: Music(sequelize), // Reference the Playlist model now
+                    key: 'playlist_uri', 
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
