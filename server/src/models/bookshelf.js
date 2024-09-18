@@ -37,6 +37,8 @@ export function Bookshelf(sequelize) {
             // ISBN
             industry_identifiers: {
                 type: DataTypes.STRING, 
+                unique: true,
+                
             },
         },
         {

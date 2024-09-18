@@ -24,3 +24,6 @@ const genreToMusicCategory = {
     
     const spotifyClientId = process.env.SPOTIFY_CLIENT_ID;
     const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+  }
+
+  // this is the logic that the will result from someone selecting certain buttons. This will establish the params we input into the api endpoints for both.

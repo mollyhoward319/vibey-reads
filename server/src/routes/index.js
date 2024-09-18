@@ -7,3 +7,7 @@ router.use('/api', apiRoutes);
 
 export default router;
 // activyt 14.3.insmodels
+
+// done
+
+// all API folder logic is pulled here to be used.

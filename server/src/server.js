@@ -21,3 +21,5 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 // activity 14.03.
+
+// done
