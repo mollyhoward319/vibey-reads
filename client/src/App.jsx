@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect} from 'react'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
+
+const CLIENT_ID = "";
+const CLIENT_SECRET= "";
 
 function App() {
-  const [count, setCount] = useState(0)
+const [searchInput, setSearchInput] = useState("");
+
+useEffect(() => {
+
+}, [])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className="App">
+        <Container>
+          <InputGroup className="mb-3" size="lg">
+          <FormControl
+            placeholder= "Search for Artist"
+            type="input"
+            onKeyPress={event => {
+              if (event.key == "Enter") {
+                console.log("Pressed enter");
+              }
+            }}
+            onChange={event => setSearchInput(event.target.value)}/>
+<Button onClick={() => {console.log("Clicked Button")}}>
+Search
+</Button>
+</InputGroup>
+</Container>
+        <Container>
+          <Row className="mx-2 row-cols-4">
+          <Card>
+            <Card.Img src="#" />
+            <Card.Body>
+              <Card.Title>Album Name Here</Card.Title>
+            </Card.Body>
+          </Card>
+          </Row>
+          </Container>
+        </div>
+  );
 }
 
-export default App
+export default App;
