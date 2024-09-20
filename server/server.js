@@ -1,9 +1,9 @@
 // CommonJS and Modules
 import express from "express";
-import sequelize from "./config/connection.js";
+import sequelize from "./src/config/connection.js";
 import dotenv from "dotenv";
 dotenv.config();
-import routes from './routes/index.js';
+import routes from './src/routes/index.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
