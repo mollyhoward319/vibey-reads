@@ -21,6 +21,8 @@ const genreToMusicCategory = {
   
   async function fetchPlaylistsByGenres(bookGenres) {
     const categories = bookGenres.flatMap(genre => genreToMusicCategory[genre.toLowerCase().replace(/\s+/g, '')] || []);
+
+    // /'s+g, '' removes spaces from the genre name
     
     const spotifyClientId = process.env.SPOTIFY_CLIENT_ID;
     const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET;
