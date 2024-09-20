@@ -9,6 +9,11 @@ import {
   Row,
   Card,
 } from "react-bootstrap";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/login";
+import Signup from "./pages/Signup";
+import NavBar from "./components/NavBar";
 
 const CLIENT_ID = "";
 const CLIENT_SECRET = "";
@@ -18,6 +23,14 @@ function App() {
   useEffect(() => {}, []);
   return (
     <div className="App">
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </BrowserRouter>
       <Container>
         <InputGroup className="mb-3" size="lg">
           <FormControl
