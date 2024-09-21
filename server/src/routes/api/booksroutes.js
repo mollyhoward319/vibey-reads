@@ -21,7 +21,7 @@ router.get('/:subjects', async (req, res) => {
     }
 });
 
-export default router;
+export { router as bookRouter};
 
 // todo: create the mapping for how the respon data will look like, reference model
 // spotify.api. wil// create logic that will feed subjects into this router.get from client.
