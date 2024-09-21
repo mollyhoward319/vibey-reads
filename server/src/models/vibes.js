@@ -23,12 +23,12 @@ export function Vibes(sequelize) {
                 type: DataTypes.STRING,
                 references: {
                     model: Bookshelf(sequelize), // Reference the Bookshelf model
-                    key: 'book_id', // The ISBN field in Bookshelf
+                    key: 'book_id', 
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
             },
-            music_id: {  // possibly change to playlist_id (promary key)
+            music_id: {
                 type: DataTypes.STRING,
                 references: {
                     model: Music(sequelize), // Reference the Playlist model now
@@ -37,6 +37,10 @@ export function Vibes(sequelize) {
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
             },
+            name: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            }
             
         },
         {
@@ -49,5 +53,3 @@ export function Vibes(sequelize) {
     return Vibe;
 }
 
-
-// update the vibe model with the name they gave the vibe

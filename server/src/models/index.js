@@ -13,21 +13,21 @@ const Vibe = Vibes(sequelize);
 
 // What/How are each table realated/associated?
 // User can have many Vibes
-User.hasMany(Vibe, {foreignKey: "vibe_id",});
-// Vibe.belongsTo(User, {foreignKey: "vibe_id",}); We may not need this one.
+User.hasMany(Vibe, {foreignKey: "user_id",});
+Vibe.belongsTo(User, {foreignKey: "user_id",});
 
 // A Vibe HAS A Book, has a playlist, and a user
 Vibe.hasOne(Books, {foreignKey: "book_id",});
 Vibe.hasOne(Playlist, {foreignKey: "music_id"});
-Vibe.hasOne(User, {foreignKey: "id"});
+// Vibe.hasOne(User, {foreignKey: "id"}); may not need
 
 
   // Books belongs to many vibes
-Books.belongsToMany(Vibe, {foreignKey: "book_id",});
+Books.belongsTo(Vibe, {foreignKey: "book_id",});
 // Music belongs to vibes
-Playlist.belongsToMany(Vibe, {foreignKey: "music_id",});
+Playlist.belongsTo(Vibe, {foreignKey: "music_id",});
 // User belongs to vibe
-User.belongsToMany(Vibe, { foreignKey: "id" });
+User.hasOne(Vibe, { foreignKey: "vibe_id" });
 
 export { sequelize, User , Books, Playlist, Vibe};
 
