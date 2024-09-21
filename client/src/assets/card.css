@@ -1,0 +1,132 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of the viewport */
+  }
+  
+  /* Make the Routes area (main content) grow to take available space */
+  .App .main-content {
+    flex: 1; /* Grow to fill the space */
+  }
+  
+  
+  body {
+      background-color: #DDBEA9;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+      background-color: #A5A58D;
+      height: 150px;
+  }
+  
+  .header h1 {
+    margin: 30px;
+    font-size: 75px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  footer {
+      background-color: #A5A58D;
+      padding: 55px;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .nav-border {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+   margin: 10px;
+  }
+  
+  /* Basic styles for the card */
+  .card {
+      border: 1px solid #040000; 
+      border-radius: 8px; 
+      overflow: hidden; 
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Inward shadow */
+      transition: transform 0.3s, box-shadow 0.3s; 
+      margin-top: 80px;
+      margin-bottom: 30px;
+      max-width: 300px;
+      max-height: auto;
+      margin-left: 90px;
+    }
+    
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .card-body {
+      padding: 1opx;
+      text-align: center;
+    }
+    
+    .card-title {
+      font-size: 20px;
+      color: #0d0000;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px); /* Moves the card up slightly */
+      box-shadow: inset 0 0 20px rgba(26, 10, 171, 0.2);
+    }
+    
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+  
+    /* Adjustments for small screens (mobile) */
+  @media (max-width: 600px) {
+    .header {
+        flex-direction: column; 
+        height: auto; 
+        padding: 10px; 
+    }
+  
+    .header h1 {
+        font-size: 6vw; 
+    }
+  
+    footer {
+        padding: 1rem; 
+    }
+  }
+  
+  /* Adjustments for medium screens (tablets) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .header {
+        height: 120px; 
+        padding: 0 15px; 
+    }
+  
+    .header h1 {
+        font-size: 5vw; 
+    }
+  
+    footer {
+        padding: 1.5rem; 
+    }
+  }
+  
+  /* Adjustments for large screens (desktops) */
+  @media (min-width: 1025px) {
+    .header {
+        height: 150px; 
+    }
+  
+    .header h1 {
+        font-size: 3rem; 
+    }
+  
+    footer {
+        padding: 2rem; 
+    }
+  }
