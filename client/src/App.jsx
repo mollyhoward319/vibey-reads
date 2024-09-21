@@ -9,6 +9,10 @@ import {
   Row,
   Card,
 } from "react-bootstrap";
+import Header from './Components/Header'
+import NavBar from './Components.NavBar'
+import Footer from './Components.Footer'
+
 
 <<<<<<< HEAD
 // const SPOTIFY_CLIENT_ID = "";
