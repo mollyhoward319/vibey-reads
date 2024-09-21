@@ -12,20 +12,21 @@ import {
 import Header from './Components/Header'
 import NavBar from './Components.NavBar'
 import Footer from './Components.Footer'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/login";
+import Signup from "./pages/Signup";
+import NavBar from "./components/NavBar";
 
 
-<<<<<<< HEAD
 // const SPOTIFY_CLIENT_ID = "";
 // const SPOTIFY_CLIENT_SECRET= "";
-=======
 const CLIENT_ID = "";
 const CLIENT_SECRET = "";
->>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
 
 const SPOTIFY_CLIENT_ID="ec9e9c53cc894eaf82ba5e392c129aab";
 const SPOTIFY_SECRET_ID="3e10fefa08ee48719fe9eac4d142ad84";
 function App() {
-<<<<<<< HEAD
 const [searchInput, setSearchInput] = useState("");
 const [AccessToken, setAccessToken] = useState("");
 const [albums, setAlbums] = useState([]);
@@ -81,14 +82,20 @@ console.log(albums);
       <div className="App">
         <Container>
           <InputGroup className="mb-3" size="lg">
-=======
   const [searchInput, setSearchInput] = useState("");
   useEffect(() => {}, []);
   return (
     <div className="App">
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </BrowserRouter>
       <Container>
         <InputGroup className="mb-3" size="lg">
->>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
           <FormControl
             placeholder="Search for Artist"
             type="input"
@@ -97,7 +104,6 @@ console.log(albums);
                 search();
               }
             }}
-<<<<<<< HEAD
             onChange={event => setSearchInput(event.target.value)}
 />
 <Button onClick={search}>
@@ -110,7 +116,6 @@ Search
             {albums.map( (album, i) => {
               console.log(album);
               return(
-=======
             onChange={(event) => setSearchInput(event.target.value)}
           />
           <Button
@@ -124,24 +129,20 @@ Search
       </Container>
       <Container>
         <Row className="mx-2 row-cols-4">
->>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
           <Card>
             <Card.Img src={album.images[0].url} />
             <Card.Body>
               <Card.Title>{album.name}</Card.Title>
             </Card.Body>
           </Card>
-<<<<<<< HEAD
             )
           })}
           </Row>
           </Container>
         </div>
-=======
         </Row>
       </Container>
     </div>
->>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
   );
 }
 
