@@ -1,14 +1,27 @@
-import { useState, useEffect} from 'react'
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
+import { useState, useEffect } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Container,
+  InputGroup,
+  FormControl,
+  Button,
+  Row,
+  Card,
+} from "react-bootstrap";
 
+<<<<<<< HEAD
 // const SPOTIFY_CLIENT_ID = "";
 // const SPOTIFY_CLIENT_SECRET= "";
+=======
+const CLIENT_ID = "";
+const CLIENT_SECRET = "";
+>>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
 
 const SPOTIFY_CLIENT_ID="ec9e9c53cc894eaf82ba5e392c129aab";
 const SPOTIFY_SECRET_ID="3e10fefa08ee48719fe9eac4d142ad84";
 function App() {
+<<<<<<< HEAD
 const [searchInput, setSearchInput] = useState("");
 const [AccessToken, setAccessToken] = useState("");
 const [albums, setAlbums] = useState([]);
@@ -64,14 +77,23 @@ console.log(albums);
       <div className="App">
         <Container>
           <InputGroup className="mb-3" size="lg">
+=======
+  const [searchInput, setSearchInput] = useState("");
+  useEffect(() => {}, []);
+  return (
+    <div className="App">
+      <Container>
+        <InputGroup className="mb-3" size="lg">
+>>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
           <FormControl
-            placeholder= "Search for Artist"
+            placeholder="Search for Artist"
             type="input"
-            onKeyPress={event => {
+            onKeyPress={(event) => {
               if (event.key == "Enter") {
                 search();
               }
             }}
+<<<<<<< HEAD
             onChange={event => setSearchInput(event.target.value)}
 />
 <Button onClick={search}>
@@ -84,17 +106,38 @@ Search
             {albums.map( (album, i) => {
               console.log(album);
               return(
+=======
+            onChange={(event) => setSearchInput(event.target.value)}
+          />
+          <Button
+            onClick={() => {
+              console.log("Clicked Button");
+            }}
+          >
+            Search
+          </Button>
+        </InputGroup>
+      </Container>
+      <Container>
+        <Row className="mx-2 row-cols-4">
+>>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
           <Card>
             <Card.Img src={album.images[0].url} />
             <Card.Body>
               <Card.Title>{album.name}</Card.Title>
             </Card.Body>
           </Card>
+<<<<<<< HEAD
             )
           })}
           </Row>
           </Container>
         </div>
+=======
+        </Row>
+      </Container>
+    </div>
+>>>>>>> 39188782de3923551bbc4968873b4f2709a2057b
   );
 }
 
