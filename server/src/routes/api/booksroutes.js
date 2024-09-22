@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import fetch from 'node-fetch';
-import { mapGoogleBooksData } from '../../utils/dataMapping'; // Adjusted import path
+import { mapGoogleBooksData } from '../../utils/dataMapping.js'; // Adjusted import path
 
 const router = Router();
 

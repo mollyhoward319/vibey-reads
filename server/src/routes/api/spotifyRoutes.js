@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import fetch from 'node-fetch';
-import { mapSpotifyPlaylistsData, mapSpotifyCategoriesData } from '../../utils/dataMapping'; // Import the mapping functions
+import { mapSpotifyPlaylistsData, mapSpotifyCategoriesData } from '../../utils/dataMapping.js'; // Import the mapping functions
 
 const router = Router();
 
