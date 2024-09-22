@@ -29,6 +29,7 @@
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
     "jsonwebtoken": "^9.0.2",
-    "react-bootstrap": "^2.10.4"
+    "react-bootstrap": "^2.10.4",
+    "sequelize": "^6.37.3"
   }
 }
