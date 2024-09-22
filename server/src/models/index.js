@@ -12,32 +12,32 @@ const User = UserFactory(sequelize);
 // What/How are each table realated/associated
 // User can have many Vibes
 // a Vibe belongs to a User
-User.hasMany(Vibes, {
-  foreignKey: "vibe_id",
-});
+// User.hasMany(Vibes, {
+//   foreignKey: "vibe_id",
+// });
 
-Vibes.belongsTo(UserFactory, {
-  foreignKey: "vibe_id",
-});
+// Vibes.belongsTo(UserFactory, {
+//   foreignKey: "vibe_id",
+// });
 
 // A Book belongs to a Vibe
 // A Vibe HAS A Book
-Vibes.hasOne(Bookshelf, {
-  foreignKey: "book_id",
-});
+// Vibes.hasOne(Bookshelf, {
+//   foreignKey: "book_id",
+// });
 
-Bookshelf.belongsTo(Vibes, {
-  foreignKey: "book_id",
-});
-// A Playlist belongs to a Vibe
-// A Vibe HAS A Playlist
-Vibes.hasOne(Music, {
-  foreignKey: "music_id",
-});
+// Bookshelf.belongsTo(Vibes, {
+//   foreignKey: "book_id",
+// });
+// // A Playlist belongs to a Vibe
+// // A Vibe HAS A Playlist
+// Vibes.hasOne(Music, {
+//   foreignKey: "music_id",
+// });
 
-Music.belongsTo(Vibes, {
-  foreignKey: "music_id",
-});
+// Music.belongsTo(Vibes, {
+//   foreignKey: "music_id",
+// });
 
 // User.hasMany(Vibes, { foreignKey: "assignedUserId" });
 

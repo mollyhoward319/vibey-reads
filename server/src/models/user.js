@@ -13,9 +13,10 @@ export function UserFactory(sequelize) {
   User.init(
     {
       id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
+        autoIncrement: true,
       },
       username: {
         type: DataTypes.STRING,
@@ -35,15 +36,6 @@ export function UserFactory(sequelize) {
           },
         },
       },
-      my_vibes: [ 
-        {
-          type: DataTypes.INTEGER,
-          references: {
-            model: 'vibes',
-            ref: 'vibe_id'
-          }
-        }
-      ],
     },
     {
       tableName: "users",
