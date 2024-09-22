@@ -2,11 +2,19 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-
+import './Profile.css';
 
 const CLIENT_ID = "ec9e9c53cc894eaf82ba5e392c129aab";
 const CLIENT_SECRET = "3e10fefa08ee48719fe9eac4d142ad84";
-
+const Profile = () => {
+    return (
+        <div className="profile">
+            <img src = "/profile.jpg" alt="Profile" className="profile-image"/>
+            <h1> Test</h1>
+            <p>Test</p>
+        </div>
+    );
+};
 
 function App1() {
 
