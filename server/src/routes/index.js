@@ -8,4 +8,3 @@ router.use("/auth", authRoutes);
 router.use("/api", apiRoutes);
 
 export default router;
-// activyt 14.3.insmodels
