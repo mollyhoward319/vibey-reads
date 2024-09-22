@@ -8,7 +8,7 @@ import Signup from "./pages/Signup";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import App1 from "./pages/Profile.jsx";
-import Profile from './components/Profile;'
+import Profile from './pages/Profile;'
 
 // const SPOTIFY_CLIENT_ID = "";
 // const SPOTIFY_CLIENT_SECRET= "";
