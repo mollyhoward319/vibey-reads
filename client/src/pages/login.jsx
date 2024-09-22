@@ -4,7 +4,7 @@
 
 const Login = () => {
   return (
-    <div>
+    <div className="form-wrapper">
       <h2>Login</h2>
       <form>
         <div className="form-group">
