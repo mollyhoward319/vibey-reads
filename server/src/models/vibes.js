@@ -1,56 +1,58 @@
-import { Sequelize, DataTypes, Model } from 'sequelize'; 
-import {User} from "./index.js"
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../config/connection.js';
+import User from './user.js'; // Import the User model directly
+import Book from './bookshelf.js'; // Import the Bookshelf model directly
+import Playlist from './music.js'; // Import the Music model directly
 
-export function Vibes(sequelize) {
-    class Vibe extends Model {} 
+class Vibe extends Model { }
 
-    Vibe.init(
-        {
-            vibe_id: {
-                type: DataTypes.INTEGER, 
-                autoIncrement: true,
-                primaryKey: true,
-            },
-            user_id: {
-                type: DataTypes.STRING,
-                references: {
-                    model: User(sequelize), // Reference the User model
-                    key: 'id', // The user id field in Users
-                },
-                onUpdate: 'CASCADE',
-                onDelete: 'SET NULL',
-            },
-            book_id: {
-                type: DataTypes.STRING,
-                references: {
-                    model: Bookshelf(sequelize), // Reference the Bookshelf model
-                    key: 'book_id', 
-                },
-                onUpdate: 'CASCADE',
-                onDelete: 'SET NULL',
-            },
-            music_id: {
-                type: DataTypes.STRING,
-                references: {
-                    model: Music(sequelize), // Reference the Playlist model now
-                    key: 'music_id', 
-                },
-                onUpdate: 'CASCADE',
-                onDelete: 'SET NULL',
-            },
-            name: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            }
-            
+Vibe.init(
+    {
+        vibe_id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
         },
-        {
-            sequelize,
-            timestamps: false,
-            underscored: true,
-            freezeTableName: true,
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: User, // Reference the User model
+                key: 'id', // The user id field in Users
+            },
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+        },
+        book_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Book, // Reference the Bookshelf model
+                key: 'book_id',
+            },
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+        },
+        music_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Playlist, // Reference the Playlist model now
+                key: 'music_id',
+            },
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
-    );
-    return Vibe;
-}
+
+    },
+    {
+        sequelize,
+        timestamps: false,
+        underscored: true,
+        freezeTableName: true,
+    }
+);
+
+export default Vibe;
 
