@@ -4,8 +4,8 @@ import { mapGoogleBooksData } from '../../utils/dataMapping';
 
 const router = Router();
 
-router.get('/health', (req, res) => {
-    res.status(200).send('Hello from the API Route');
+router.get("/health", (req, res) => {
+  res.status(200).send("Hello from the API Route");
 });
 
 router.get('/:subjects', async (req, res) => {
