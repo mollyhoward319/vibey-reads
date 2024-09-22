@@ -1,7 +1,6 @@
 import { Sequelize, DataTypes, Model } from 'sequelize';
 
-export function Music(sequelize) {
-    class Playlist extends Model {} // Define the Playlist model
+class Playlist extends Model {} // Define the Playlist model
 
     Playlist.init(
         {
@@ -42,5 +41,5 @@ export function Music(sequelize) {
             freezeTableName: true, // Prevent Sequelize from pluralizing table names
         }
     );
-    return Playlist;
-}
+
+export default Playlist;
