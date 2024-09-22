@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -16,50 +19,57 @@ const Signup = () => {
 
     console.log(userData);
 
-    const response = await fetch("http://localhost:3001/api/Users", {
+    const options = {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
-    });
+    };
 
-    const data = await response.json();
-
-    console.log(data);
+    fetch("http://localhost:3001/api/Users", options)
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username: </label>
-          <input
-            type="username"
-            onChange={(event) => setUsername(event.target.value)}
-            name="username"
-            id="username"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email: </label>
-          <input
-            type="email"
-            onChange={(event) => setEmail(event.target.value)}
-            name="username"
-            id="email"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            name="username"
-            onChange={(event) => setPassword(event.target.value)}
-            id="password"
-          />
-        </div>
-        <button>Signup</button>
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter username"
+          onChange={(event) => setUsername(event.target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="Enter email"
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+      <Form.Text className="d-block">
+        Already have an account?{" "}
+        <Link to="/login" className="login-here">
+          Login here
+        </Link>
+      </Form.Text>
+    </Form>
   );
 };
+
 export default Signup;

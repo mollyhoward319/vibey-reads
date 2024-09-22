@@ -39,6 +39,7 @@ export function UserFactory(sequelize) {
     },
     {
       tableName: "users",
+      timestamps: false,
       sequelize,
       hooks: {
         beforeCreate: async (user) => {

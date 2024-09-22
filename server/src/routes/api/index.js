@@ -10,4 +10,3 @@ router.use("/books", bookRouter); // Prefix all routes defined in `bookRoutes.js
 router.use("/music", musicRouter); // Prefix all routes defined in "spotifyRoutes.js" with /music
 
 export default router;
-
