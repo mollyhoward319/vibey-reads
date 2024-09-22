@@ -54,71 +54,71 @@ function selectYourVibe() {
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="mystery"
+                        label="Mystery"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="horror"
+                        label="Horror"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="biographyAndAutobiography"
+                        label="Biography and Autobiography"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="historical"
+                        label="Historical"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="selfHelp"
+                        label="Self Help"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="religion"
+                        label="Religion"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="childrensBooks"
+                        label="Children's Books"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="youngAdult"
+                        label="Young Adult"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="tragedy"
+                        label="Tragedy"
                     />
                 </div>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
-                        id="default-checkbox"
-                        label="default checkbox"
+                        id="showMatureContent"
+                        label="Click to Allow Mature Content"
                     />
                 </div>
             </Form>
