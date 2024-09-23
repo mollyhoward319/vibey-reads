@@ -27,7 +27,7 @@ const Signup = () => {
       body: JSON.stringify(userData),
     };
 
-    fetch("/api/Users", options)
+    fetch("http://localhost:3001/api/Users", options)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);

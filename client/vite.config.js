@@ -6,8 +6,8 @@ export default defineConfig({
   port: 3000,
   plugins: [react()],
   proxy: {
-    "/": {
-      target: "https://vibey-reads-ndt1.onrender.com",
+    "/api": {
+      target: "http://localhost:3001",
       changeOrigin: true,
       secure: false,
     },
