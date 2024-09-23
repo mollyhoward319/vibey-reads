@@ -1,4 +1,5 @@
-import { Sequelize, DataTypes, Model } from 'sequelize';
+import {DataTypes, Model } from 'sequelize';
+import sequelize from '../config/connection.js';
 
 
 class Book extends Model { }
@@ -48,5 +49,6 @@ Book.init(
         freezeTableName: true,
     }
 );
+
 
 export default Book;
