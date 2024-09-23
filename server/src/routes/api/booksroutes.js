@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { fetchBooksByCategory } from '../service/bookService.js';
+import { mapGoogleBooksData } from '../utils/dataMapper.js';
 
 const router = Router();
 
