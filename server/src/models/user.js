@@ -38,8 +38,8 @@ export function UserFactory(sequelize) {
       },
     },
     {
-      tableName: "users",
       timestamps: false,
+      freezeTableName: true,
       sequelize,
       hooks: {
         beforeCreate: async (user) => {

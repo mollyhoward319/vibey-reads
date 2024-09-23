@@ -1,7 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import Login from "./pages/login";
 import Signup from "./pages/Signup";
 import NavBar from "./components/NavBar";

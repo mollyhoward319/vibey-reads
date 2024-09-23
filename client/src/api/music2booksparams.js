@@ -1,5 +1,3 @@
-// This file will be used to map the Spotify music categories to the Google Books API categories
-
 const genreToMusicCategory = {
     // Map book genres to Spotify music categories
     fiction: ['chill', 'indie', 'acoustic'],
@@ -19,11 +17,5 @@ const genreToMusicCategory = {
     tragedy: ['melancholy', 'sad songs', 'piano'],
   };
 
+  export default genreToMusicCategory;
 
-var chosenCat = document.getElementbyId("blah").textContent;//we grabbed this value from the textContent of the element they chose
-var googleParam = chosenCat;
-var spotifyParam = genreToMusicCategory[chosenCat][0];//acessing object by key
-
-// Display Data from the Object:
-document.getElementById("demo").innerHTML =
-"Spotify Variable: "  + spotifyParam;
