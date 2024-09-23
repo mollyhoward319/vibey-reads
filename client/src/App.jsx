@@ -6,9 +6,9 @@ import Home from "./pages/Home";
 import Login from "./pages/login";
 import Signup from "./pages/Signup";
 import NavBar from "./components/NavBar";
-import "./App.css";
+// import App from "../App.css";
 import App1 from "./pages/Profile.jsx";
-import Profile from './pages/Profile;'
+// import Profile from './pages/Profile;'
 
 // const SPOTIFY_CLIENT_ID = "";
 // const SPOTIFY_CLIENT_SECRET= "";
@@ -40,8 +40,9 @@ import Profile from './pages/Profile;'
 
 function App() {
   return (
-    <div>
-      <App1 />     
+    <div>     
+      <NavBar/>
+      <App1/>
     </div>
   );
 }

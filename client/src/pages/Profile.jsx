@@ -1,14 +1,18 @@
-import '../App.css';
+import '../assets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
+import { genreToMusicCategory } from '../api/music2booksparams.js';
+import { Container, InputGroup, FormControl, Button, Row, Card , Form} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import './Profile.css';
+// import CSS from './Profile.css';
+import logo from '/VibeyReadsLogo.png';
 
-const CLIENT_ID = "ec9e9c53cc894eaf82ba5e392c129aab";
-const CLIENT_SECRET = "3e10fefa08ee48719fe9eac4d142ad84";
+const CLIENT_ID = "";
+const CLIENT_SECRET = "";
+
 const Profile = () => {
     return (
         <div className="profile">
+            <img src={logo} alt="Vibey Reads Logo" className="logo-image"/>
             <img src = "/profile.jpg" alt="Profile" className="profile-image"/>
             <h1> Test</h1>
             <p>Test</p>
@@ -21,6 +25,7 @@ function App1() {
     const [searchInput, setSearchInput] = useState("");
     const [accessToken, setAccessToken] = useState("");
     const [albums, setAlbums] = useState([]);
+    const genreToMusicCategories  = genreToMusicCategory;
 
     useEffect(() => {
 //API Access Token
@@ -39,7 +44,7 @@ fetch('https://accounts.spotify.com/api/token', authParameters)
     
     //Search
     async function search() {
-        console.log("Search for " + searchInput); //Taylor Swift
+        console.log("Search for " + searchInput); //Beyonce
         console.log(accessToken);
         //Get request using search to get the Artists ID
         var searchParameters = {
@@ -48,7 +53,7 @@ fetch('https://accounts.spotify.com/api/token', authParameters)
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + accessToken
             }
-            
+        
         }
         var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
         .then(response => response.json())
@@ -67,6 +72,9 @@ var returnedAlbums = await fetch ('https://api.spotify.com/v1/artists/' + artist
     
     return (
         <div className="App1">
+            <Container className = "text-center">
+            <img src={logo} alt="Vibey Reads Logo" className="logo-image"/>
+                </Container>
             <Container>
                 <InputGroup className="mb-3" size="lg">
                     <FormControl 
@@ -83,6 +91,32 @@ var returnedAlbums = await fetch ('https://api.spotify.com/v1/artists/' + artist
                         Search
                     </Button>
                 </InputGroup>
+            </Container>
+            <Container>
+            <Form.Select 
+                    aria-label="Select Genre"
+                    onChange={event => setSelectedGenre(event.target.value)}
+                >
+                    <option value="">Select Genre</option>
+                    {Object.keys(genreToMusicCategory).map((genre, i) => (
+                        <option key={i} value={genre}>{genre}</option>
+                    ))}
+                </Form.Select>
+                <Row className="mx-2 row row-cols-4">
+                    {Object.entries(genreToMusicCategory).map( ([genre, categories], i) => {
+                        console.log(genre);
+                    return (
+                    <Card key={i}>
+                        <Card.Body>
+                            <Card.Title>{genre}</Card.Title>
+                            <Card.Text>
+                                    {categories.join(', ')}
+                                </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    )
+                })}
+                </Row>
             </Container>
             <Container>
                 <Row className="mx-2 row row-cols-4">

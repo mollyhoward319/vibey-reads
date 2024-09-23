@@ -1,4 +1,4 @@
-const genreToMusicCategory = {
+export const genreToMusicCategory = {
     fiction: ['chill', 'indie', 'acoustic'],
     scienceFiction: ['synthwave', 'electronic', 'futuristic'],
     fantasy: ['epic', 'adventure', 'classical'],

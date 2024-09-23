@@ -70,3 +70,10 @@ button {
 .header a:hover {
   text-decoration: underline;
 }
+
+.logo-image {
+  width: 400px; /* Adjust the width to make the logo smaller */
+  height: auto; /* Maintain the aspect ratio */
+  margin: 20px auto; /* Center the image horizontally */
+  display: block; /* Ensure the image is treated as a block element */
+}
