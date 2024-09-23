@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
-import { mapGoogleBooksData } from '../../utils/dataMapping';
+import { mapGoogleBooksData } from '../utils/dataMapping.js';
+
 
 export async function fetchBooksByCategory(categories) {
     const apiKey = process.env.GOOGLE_API_KEY;
