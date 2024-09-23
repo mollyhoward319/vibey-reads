@@ -7,8 +7,7 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon server/src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "npm run build && node dist/seeds/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
     "watch": [

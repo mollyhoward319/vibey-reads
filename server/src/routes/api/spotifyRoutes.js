@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { fetchPlaylistsByGenres } from '../service/spotifyService.js';
-import { mapSpotifyCategoriesData } from '../../utils/dataMapping'; 
+import { fetchPlaylistsByGenres } from '../../service/spotifyService.js';
+import { mapSpotifyCategoriesData } from '../../utils/dataMapping.js'; 
 
 const router = Router();
 
@@ -51,4 +51,4 @@ router.get('/playlists', async (req, res) => {
     }
 });
 
-export default router;
+export {router as musicRouter};
