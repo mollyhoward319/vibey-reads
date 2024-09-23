@@ -2,8 +2,9 @@ import {DataTypes, Model } from 'sequelize';
 import sequelize from '../config/connection.js';
 
 
-class Book extends Model { }
+export class Book extends Model { }
 
+export default function BookFactory (sequelize) {
 Book.init(
     {
         book_id: {
@@ -49,6 +50,7 @@ Book.init(
         freezeTableName: true,
     }
 );
+return Book;    
+}
 
 
-export default Book;

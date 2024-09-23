@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { Music } from '../models/music.js'; // Import the Music model
+import Music from '../models/music.js'; // Import the Music model
 
 const genreToMusicCategory = {
     fiction: ['chill', 'indie', 'acoustic'],
