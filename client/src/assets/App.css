@@ -24,8 +24,14 @@ a {
   color: var(--primary-color);
 }
 
-nav a {
+nav a,
+nav button {
   color: var(--info-color) !important;
+}
+
+nav button {
+  background-color: transparent !important;
+  border: none !important;
 }
 
 .form-wrapper {
