@@ -3,12 +3,6 @@ import { fetchBooksByCategory } from '../service/bookService.js';
 
 const router = Router();
 
-// Health check route
-router.get("/health", (req, res) => {
-    res.status(200).send("Hello from the API Route");
-});
-
-// Route to get books based on subjects
 router.get('/:subjects', async (req, res) => {
     try {
         const subjects = req.params.subjects.split(','); // Assuming subjects are comma-separated
