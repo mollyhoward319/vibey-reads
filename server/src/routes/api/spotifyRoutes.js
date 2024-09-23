@@ -1,13 +1,12 @@
 import { Router } from 'express';
-import fetch from 'node-fetch';
-import { mapSpotifyPlaylistsData, mapSpotifyCategoriesData } from '../../utils/dataMapping'; 
 import { fetchPlaylistsByGenres } from '../service/spotifyService.js';
+import { mapSpotifyCategoriesData } from '../../utils/dataMapping'; 
 
 const router = Router();
 
 // Health check route
 router.get('/health', (req, res) => {
-    res.status(200).send('Hello from the API Route');
+    res.status(200).send('Hello from the Spotify API Route');
 });
 
 // Route to get Spotify categories
@@ -32,7 +31,7 @@ router.get('/categories', async (req, res) => {
         });
 
         const data = await response.json();
-        const mappedData = mapSpotifyCategoriesData(data); 
+        const mappedData = mapSpotifyCategoriesData(data);
         res.send(mappedData);
     } catch (error) {
         console.error('Error fetching categories from Spotify API:', error);
@@ -40,13 +39,12 @@ router.get('/categories', async (req, res) => {
     }
 });
 
-// Route to get playlists based on subjects
-router.get('/:subjects', async (req, res) => {
+// Route to get playlists based on genres
+router.get('/playlists', async (req, res) => {
     try {
-        const subjects = req.params.subjects.split(','); // Split by comma if multiple subjects are sent
-        const playlists = await fetchPlaylistsByGenres(subjects);
-        const mappedData = mapSpotifyPlaylistsData({ playlists: { items: playlists } });
-        res.send(mappedData);
+        const { genres } = req.query; // Get genres from query parameters
+        const playlists = await fetchPlaylistsByGenres(genres.split(',')); // Fetch playlists
+        res.json(playlists);
     } catch (error) {
         console.error('Error fetching playlists from Spotify API:', error);
         res.status(500).json({ error: 'Failed to fetch playlists from Spotify API' });
