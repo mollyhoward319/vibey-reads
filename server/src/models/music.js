@@ -1,9 +1,9 @@
-import {DataTypes, Model } from 'sequelize';
-import sequelize from '../config/connection.js';
+import { Sequelize, DataTypes, Model } from 'sequelize';
 
-class Music extends Model {} // Define the Playlist model
+export function Music(sequelize) {
+    class Playlist extends Model {} // Define the Playlist model
 
-    Music.init(
+    Playlist.init(
         {
             music_id: {
                 type: DataTypes.INTEGER, 
@@ -42,5 +42,5 @@ class Music extends Model {} // Define the Playlist model
             freezeTableName: true, // Prevent Sequelize from pluralizing table names
         }
     );
-
-export default Music;
+    return Playlist;
+}
