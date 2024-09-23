@@ -1,13 +1,12 @@
 import { Router } from 'express';
 import { fetchBooksByCategory } from '../service/bookService.js';
-import { mapGoogleBooksData } from '../../utils/dataMapping';
 
 const router = Router();
 
 router.get('/:subjects', async (req, res) => {
     try {
         const subjects = req.params.subjects.split(','); // Assuming subjects are comma-separated
-        const books = await fetchBooksByCategory(subjects);
+        const books = await fetchBooksByCategory(subjects); // Fetch books
         res.json(books); // Respond with mapped data
     } catch (error) {
         console.error('Error fetching data from Google Books API:', error);

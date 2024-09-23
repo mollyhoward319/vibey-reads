@@ -1,8 +1,5 @@
-import { Router } from 'express';
 import fetch from 'node-fetch';
-import { mapSpotifyPlaylistsData, mapSpotifyCategoriesData } from '../../utils/dataMapping'; 
 import { Music } from '../models/music.js'; // Import the Music model
-import { Vibes } from '../models/vibes.js'; // Import the Vibes model
 
 const genreToMusicCategory = {
     fiction: ['chill', 'indie', 'acoustic'],
@@ -49,41 +46,25 @@ export async function fetchPlaylistsByGenres(genres) {
             });
             const data = await response.json();
             if (data.playlists && data.playlists.items) {
-                const mappedPlaylists = mapSpotifyPlaylistsData(data.playlists);
-                playlists.push(...mappedPlaylists); // Call mapping function
+                playlists.push(...data.playlists.items); 
             }
         }
     }
 
-    // Optional: Save fetched playlists to the database (Music model)
+
     for (const playlist of playlists) {
         await Music.create({
             name: playlist.name,
             description: playlist.description,
             category: playlist.category,
-            playlist_uri: playlist.playlist_uri,
-            total_tracks: playlist.total_tracks,
-            external_url: playlist.external_url,
-            image_url: playlist.image_url,
+            playlist_uri: playlist.external_urls.spotify, 
+            total_tracks: playlist.tracks.total,
+            external_url: playlist.external_urls.spotify,
+            image_url: playlist.images[0]?.url, 
         });
     }
 
     return playlists;
 }
 
-// Express Router for Spotify-related routes
-const router = Router();
-
-// Example route to fetch playlists based on selected genres
-router.get('/playlists', async (req, res) => {
-    try {
-        const { genres } = req.query; // Get genres from query parameters
-        const playlists = await fetchPlaylistsByGenres(genres.split(',')); // Fetch playlists
-        res.json(playlists);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to fetch playlists' });
-    }
-});
-
-export default router;
+// Separation of Concerns: The service file handles the business logic of fetching playlists and saving them to the database, while the routes file defines the HTTP endpoints and calls the service functions.
