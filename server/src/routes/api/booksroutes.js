@@ -4,10 +4,6 @@ import { mapGoogleBooksData } from '../../utils/dataMapping';
 
 const router = Router();
 
-router.get("/health", (req, res) => {
-  res.status(200).send("Hello from the API Route");
-});
-
 router.get('/:subjects', async (req, res) => {
     try {
         const subjects = req.params.subjects.split(','); // Assuming subjects are comma-separated

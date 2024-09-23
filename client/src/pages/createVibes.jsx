@@ -1,26 +1,34 @@
-// todo: form for creating vibes, nav bar, and footer
-import "./src/App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import {
-    Container,
-    InputGroup,
-    FormControl,
-    Button,
-    Row,
-    Card,
-} from "react-bootstrap";
-import { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
+import React, { useState } from 'react';
+import { Container, Form, Button } from 'react-bootstrap';
 
-function selectYourVibe() {
+function SelectYourVibe({ onSubmit }) {
+    const [selectedVibes, setSelectedVibes] = useState([]);
+
+    const handleCheckboxChange = (event) => {
+        const { id, checked } = event.target;
+        setSelectedVibes((prevSelectedVibes) => {
+            if (checked) {
+                return [...prevSelectedVibes, id];
+            } else {
+                return prevSelectedVibes.filter((vibe) => vibe !== id);
+            }
+        });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onSubmit(selectedVibes);
+    };
+
     return (
         <Container>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <Form.Check
                         type="checkbox"
                         id="fiction"
                         label="Fiction"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -28,6 +36,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="scienceFiction"
                         label="Science Fiction"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -35,6 +44,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="fantasy"
                         label="Fantasy"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -42,6 +52,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="romance"
                         label="Romance"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -49,6 +60,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="thriller"
                         label="Thriller"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -56,6 +68,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="mystery"
                         label="Mystery"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -63,6 +76,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="horror"
                         label="Horror"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -70,6 +84,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="biographyAndAutobiography"
                         label="Biography and Autobiography"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -77,6 +92,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="historical"
                         label="Historical"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -84,6 +100,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="selfHelp"
                         label="Self Help"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -91,6 +108,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="religion"
                         label="Religion"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -98,6 +116,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="childrensBooks"
                         label="Children's Books"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -105,6 +124,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="youngAdult"
                         label="Young Adult"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -112,6 +132,7 @@ function selectYourVibe() {
                         type="checkbox"
                         id="tragedy"
                         label="Tragedy"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
                 <div className="mb-3">
@@ -119,14 +140,17 @@ function selectYourVibe() {
                         type="checkbox"
                         id="showMatureContent"
                         label="Click to Allow Mature Content"
+                        onChange={handleCheckboxChange}
                     />
                 </div>
+                <Button type="submit"><Submit></Submit></Button>
             </Form>
         </Container>
     );
 }
 
-export default selectYourVibe;
+
+export default SelectYourVibe;
 
 // the form will have: Book genre, maturity yes/no boolean,
 // after it runs the form there will be 3 books and 3 playlists, books and playlist colums.
