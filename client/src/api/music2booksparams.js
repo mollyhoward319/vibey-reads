@@ -1,3 +1,6 @@
+
+export const genreToMusicCategory = {
+=======
 // This file will be used to map the Spotify music categories to the Google Books API categories
 
 const genreToMusicCategory = {

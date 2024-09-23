@@ -47,3 +47,33 @@ button {
   border: none !important;
   color: var(--info-color) !important;
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #282c34;
+  color: white;
+}
+
+.header ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.logo-image {
+  width: 400px; /* Adjust the width to make the logo smaller */
+  height: auto; /* Maintain the aspect ratio */
+  margin: 20px auto; /* Center the image horizontally */
+  display: block; /* Ensure the image is treated as a block element */
+}
