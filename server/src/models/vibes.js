@@ -4,9 +4,10 @@ import User from './user.js'; // Import the User model directly
 import Book from './bookshelf.js'; // Import the Bookshelf model directly
 import Music from './music.js'; // Import the Music model directly
 
-class vibes extends Model { }
+export class Vibes extends Model { }
 
-vibes.init(
+export default function VibesFactory (sequelize) {
+Vibes.init(
     {
         vibe_id: {
             type: DataTypes.INTEGER,
@@ -53,6 +54,7 @@ vibes.init(
         freezeTableName: true,
     }
 );
+return Vibes;
+}
 
-export default vibes;
 
