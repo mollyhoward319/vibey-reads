@@ -40,7 +40,7 @@ function NavBar() {
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/signup">Signup</Nav.Link>
               <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/create-vibes">What's Your Vibe?</Nav.Link>
+            <Nav.Link href="/create-vibe">What's Your Vibe?</Nav.Link>
           </Nav>
           )}
         </Navbar.Collapse>
