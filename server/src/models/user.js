@@ -9,7 +9,7 @@ export class User extends Model {
   }
 }
 
-export default function UserFactory(sequelize) {
+export function UserFactory(sequelize) {
   User.init(
     {
       id: {

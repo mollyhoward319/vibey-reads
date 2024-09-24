@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import Music from '../models/music.js'; // Import the Music model
+//import Music from '../models/music.js'; // Import the Music model
 
 const genreToMusicCategory = {
     fiction: ['chill', 'indie', 'acoustic'],
@@ -37,34 +37,48 @@ export async function fetchPlaylistsByGenres(genres) {
 
     const playlists = [];
 
-    // Step 2: Fetch playlists for each genre
-    for (const genre of genres) {
-        const categories = genreToMusicCategory[genre.toLowerCase()] || [];
-        for (const category of categories) {
-            const response = await fetch(`https://api.spotify.com/v1/search?q=${category}&type=playlist`, {
-                headers: { 'Authorization': `Bearer ${accessToken}` },
-            });
-            const data = await response.json();
-            if (data.playlists && data.playlists.items) {
-                playlists.push(...data.playlists.items); 
+    const things = genres.split("+");
+    console.log('checkout the things: ', things);
+    await Promise.all(
+        things.map(async thing => {
+            const categories = genreToMusicCategory[thing];
+
+            for (const category of categories) {
+                const response = await fetch(`https://api.spotify.com/v1/search?q=${category}&type=playlist&limit=10`, {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
+
+                const data = await response.json();
+
+                if (data.playlists.items) {
+                    const extractedPlaylistData = data.playlists.items.map(playlist => ({
+                        href: playlist.external_urls.spotify,
+                        description: playlist.description,
+                        name: playlist.name,
+                    }));
+
+                    playlists.push(...extractedPlaylistData);
+
+                }
             }
         }
-    }
+
+        )
+    )
 
 
-    for (const playlist of playlists) {
-        await Music.create({
-            name: playlist.name,
-            description: playlist.description,
-            category: playlist.category,
-            playlist_uri: playlist.external_urls.spotify, 
-            total_tracks: playlist.tracks.total,
-            external_url: playlist.external_urls.spotify,
-            image_url: playlist.images[0]?.url, 
-        });
-    }
 
+    // for (const playlist of playlists) {
+    //     await Music.create({
+    //         name: playlist.name,
+    //         description: playlist.description,
+    //         category: playlist.category,
+    //         playlist_uri: playlist.external_urls.spotify, 
+    //         total_tracks: playlist.tracks.total,
+    //         external_url: playlist.external_urls.spotify,
+    //         image_url: playlist.images[0]?.url, 
+    //     });
+    // }
+    //console.log(playlists)
     return playlists;
 }
-
-// Separation of Concerns: The service file handles the business logic of fetching playlists and saving them to the database, while the routes file defines the HTTP endpoints and calls the service functions.
