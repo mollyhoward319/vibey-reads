@@ -37,33 +37,42 @@ export async function fetchPlaylistsByGenres(genres) {
 
     const playlists = [];
 
-    // Step 2: Fetch playlists for each genre
-    for (const genre of genres) {
-        const categories = genreToMusicCategory[genre.toLowerCase()] || [];
+    const things = genres.split("+");
+    things.forEach(async thing => {
+        const categories = genreToMusicCategory[thing];
+
+        console.log("categories", categories);
+console.log(categories.length)
         for (const category of categories) {
             const response = await fetch(`https://api.spotify.com/v1/search?q=${category}&type=playlist`, {
                 headers: { 'Authorization': `Bearer ${accessToken}` },
             });
             const data = await response.json();
-            if (data.playlists && data.playlists.items) {
-                playlists.push(...data.playlists.items); 
+
+            // console.log(data.playlists)
+
+            if (data.playlists) {
+                console.log("hello world")
+                console.log(data.playlists)
+                playlists.push(data.playlists);
             }
         }
-    }
+    })
 
 
-    for (const playlist of playlists) {
-        await Music.create({
-            name: playlist.name,
-            description: playlist.description,
-            category: playlist.category,
-            playlist_uri: playlist.external_urls.spotify, 
-            total_tracks: playlist.tracks.total,
-            external_url: playlist.external_urls.spotify,
-            image_url: playlist.images[0]?.url, 
-        });
-    }
 
+    // for (const playlist of playlists) {
+    //     await Music.create({
+    //         name: playlist.name,
+    //         description: playlist.description,
+    //         category: playlist.category,
+    //         playlist_uri: playlist.external_urls.spotify, 
+    //         total_tracks: playlist.tracks.total,
+    //         external_url: playlist.external_urls.spotify,
+    //         image_url: playlist.images[0]?.url, 
+    //     });
+    // }
+    console.log(playlists)
     return playlists;
 }
 

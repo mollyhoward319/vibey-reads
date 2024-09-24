@@ -3,8 +3,9 @@ import { mapGoogleBooksData } from '../utils/dataMapping.js';
 
 
 export async function fetchBooksByCategory(categories) {
-    const apiKey = process.env.GOOGLE_API_KEY;
+    const apiKey = process.env.GOOGLE_KEY;
     const books = [];
+
 
     let queryCategories = "";
     if (categories.length > 0) 
@@ -15,8 +16,10 @@ export async function fetchBooksByCategory(categories) {
 
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${queryCategories}&key=${apiKey}`);
     const data = await response.json();
+
+
     if (data.items) {
-        books.push(...data.items); // Only push items if they exist
+        books.push(data.items); // Only push items if they exist
     }
 
     // for (const category of categories) {
