@@ -5,16 +5,21 @@ import Login from "./pages/login";
 import Signup from "./pages/Signup";
 import NavBar from "./components/NavBar";
 // import App from "../App.css";
-import App1 from "./pages/Profile.jsx";
+import Profile from "./pages/Profile.jsx";
 // import Profile from './pages/Profile;'
 
 
 function App() {
   return (
-    <div>     
-      <NavBar/>
-      <App1/>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
