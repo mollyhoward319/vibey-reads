@@ -3,7 +3,8 @@
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import Navbar from "react-bootstrap/Navbar"
+
 
 function NavBar() {
   return (
@@ -15,6 +16,8 @@ function NavBar() {
           <Nav className="ms-auto">
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/signup">Signup</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
+            <Nav.Link href="/create-vibes">What's Your Vibe?</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
