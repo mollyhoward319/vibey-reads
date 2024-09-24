@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #586f6b;
+  --secondary-color: #babd8d;
+  --accent-color: #ffdac6;
+  --success-color: #815355;
+  --info-color: #2c1a1d;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+nav {
+  background-color: var(--primary-color) !important;
+}
+
+a {
+  color: var(--secondary-color);
+}
+
+nav a,
+nav button {
+  color: var(--info-color) !important;
+}
+
+nav button {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.form-wrapper {
+  text-align: center;
+}
+
+form {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+a.login-here {
+  color: var(--info-color);
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--accent-color) !important;
+  border: none !important;
+  color: var(--info-color) !important;
+}
+
+.error-wrapper {
+  text-align: center;
+}

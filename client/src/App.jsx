@@ -6,6 +6,8 @@ import Signup from "./pages/Signup";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import Profile from "./pages/Profile.jsx";
+import Home from "./pages/Home.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
 export const UserContext = createContext();
 function App() {
@@ -21,6 +23,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
