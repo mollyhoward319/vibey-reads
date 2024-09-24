@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import Draggable from 'react-draggable';
 import logo from '../assets/VibeyReadsLogo.png';
 import '../assets/App.css';
-import Header from '../components/Header'; // Import the Header component
+import Header from '../components/Header';
+import Book from '../assets/CourtofMist.jpg'; 
 
 const Profile = () => {
     const [musicData, setMusicData] = useState([]);
@@ -26,9 +27,32 @@ const Profile = () => {
 
     return (
         <div className="profile">
-            <img src={logo} alt="Vibey Reads Logo" className="logo-image"/> {/* Include the image */}
-            <Header /> {/* Include the Header component */}
-            <h1 style={{ textAlign: 'center' }}>Your Vibes</h1>
+            <Header /> 
+            <Container>
+                <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Col xs={12} md={6} lg={4} style={{ padding: '12px', textAlign: 'center' }}>
+                        <img
+                            src={Book}
+                            alt="Current Vibe"
+                            style={{ width: '79%', height: 'auto', borderRadius: '12px', marginBottom: '10px' }}
+                        />
+                    </Col>
+                    <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
+                        <iframe
+                            style={{ borderRadius: '12px' }}
+                            src="https://open.spotify.com/embed/playlist/4luqfsi0N6TmWMm105ucFJ?utm_source=generator&theme=0"
+                            width="100%"
+                            height="352"
+                            frameBorder="0"
+                            allowFullScreen
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                        ></iframe>
+                    </Col>
+                </Row>
+            </Container>
+            
+     
             <Container>
                 <Row>
                     {musicData.map((music) => (

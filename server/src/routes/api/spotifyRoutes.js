@@ -15,23 +15,23 @@ router.get("/health", (req, res) => {
 // Route to get Spotify categories
 router.get('/categories/:category', async (req, res) => {
     try {
-        // const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/x-www-form-urlencoded',
-        //         'Authorization': `Basic ${Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64')}`
-        //     },
-        //     body: 'grant_type=client_credentials'
-        // });
+        const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': `Basic ${Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64')}`
+            },
+            body: 'grant_type=client_credentials'
+        });
 
-        // const tokenData = await tokenResponse.json();
-        // const accessToken = tokenData.access_token;
+        const tokenData = await tokenResponse.json();
+        const accessToken = tokenData.access_token;
 
-        // const response = await fetch('https://api.spotify.com/v1/browse/categories', {
-        //     headers: {
-        //         'Authorization': `Bearer ${accessToken}`
-        //     }
-        // });
+        const response = await fetch('https://api.spotify.com/v1/browse/categories', {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
         const cat = req.params.category;
 
         const data = await fetchPlaylistsByGenres(cat);
