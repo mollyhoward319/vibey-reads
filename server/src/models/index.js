@@ -1,16 +1,16 @@
-import dotenv from "dotenv";
-dotenv.config();
 import sequelize from "../config/connection.js";
-import Vibes from "./vibes.js";
-import Music from "./music.js";
-import Book from "./bookshelf.js";
-import Users from "./userTest.js";
+import VibesFactory from "./vibes.js";
+import MusicFactory from "./music.js";
+import BookFactory from "./bookshelf.js";
+import UserFactory from "./user.js";
 
 
-const Viber =  Users(sequelize);
-const Books = new Book(sequelize);
-const Playlist = new Music(sequelize);
-const Vibe = new Vibes(sequelize);
+const Viber = UserFactory(sequelize);
+console.log ("-------", Viber);
+// const Viber = new User;
+const Books = BookFactory(sequelize);
+const Playlist = MusicFactory(sequelize);
+const Vibe = VibesFactory(sequelize);
 
 // What/How are each table realated/associated?
 // User can have many Vibes
@@ -29,5 +29,5 @@ Playlist.belongsTo(Vibe, {foreignKey: "music_id"});
 // User belongs to vibe
 Viber.hasOne(Vibe, { foreignKey: "vibe_id"});
 
-export { sequelize, Viber , Books, Playlist, Vibe};
+export {Viber , Books, Playlist, Vibe};
 

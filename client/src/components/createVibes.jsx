@@ -143,12 +143,11 @@ function SelectYourVibe({ onSubmit }) {
                         onChange={handleCheckboxChange}
                     />
                 </div>
-                <Button type="submit"><Submit></Submit></Button>
+                <Button type="submit"><onSubmit></onSubmit></Button>
             </Form>
         </Container>
     );
 }
-
 
 export default SelectYourVibe;
 

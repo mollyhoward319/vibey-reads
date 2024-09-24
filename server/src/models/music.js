@@ -1,8 +1,10 @@
 import {DataTypes, Model } from 'sequelize';
 import sequelize from '../config/connection.js';
 
-class Music extends Model {} // Define the Playlist model
 
+export class Music extends Model {} // Define the Playlist model
+
+export default function MusicFactory (sequelize) {
     Music.init(
         {
             music_id: {
@@ -42,5 +44,6 @@ class Music extends Model {} // Define the Playlist model
             freezeTableName: true, // Prevent Sequelize from pluralizing table names
         }
     );
+    return Music;
+}
 
-export default Music;

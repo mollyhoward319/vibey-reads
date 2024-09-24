@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { fetchBooksByCategory } from '../service/bookService.js';
+import { fetchBooksByCategory } from '../../service/bookService.js';
+// import { mapGoogleBooksData } from '../utils/dataMapper.js';
 
 const router = Router();
 
@@ -14,4 +15,4 @@ router.get('/:subjects', async (req, res) => {
     }
 });
 
-export default router;
+export {router as bookRouter};
