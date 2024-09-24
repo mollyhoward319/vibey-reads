@@ -8,6 +8,8 @@ import "./App.css";
 import Profile from "./pages/Profile.jsx";
 import Home from "./pages/Home.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import Footer from "./components/Footer";
+import ReccVibes from "./pages/ReccVibes.jsx";
 
 export const UserContext = createContext();
 function App() {
@@ -24,7 +26,9 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<ErrorPage />} />
+            <Route path="/ReccVibes" element={<ReccVibes />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </UserContext.Provider>
       {/* <App1 /> */}

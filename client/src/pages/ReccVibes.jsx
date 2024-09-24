@@ -9,9 +9,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
-
+const ReccVibes = () => {
 function ReccommendedVibes() {
-    const [showForm, setShowForm] = 
+    const [showForm, setShowForm] = useState(false);
     return (
         <Container>
             <Row>
@@ -35,6 +35,9 @@ function ReccommendedVibes() {
         </Container>
     );
 }
+}
+
+export default ReccVibes;
 
 
 // first part of the page happens when a user selects vibes button in the nav bar
