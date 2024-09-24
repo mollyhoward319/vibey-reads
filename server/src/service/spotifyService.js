@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import Music from '../models/music.js'; // Import the Music model
+//import Music from '../models/music.js'; // Import the Music model
 
 const genreToMusicCategory = {
     fiction: ['chill', 'indie', 'acoustic'],
@@ -38,26 +38,33 @@ export async function fetchPlaylistsByGenres(genres) {
     const playlists = [];
 
     const things = genres.split("+");
-    things.forEach(async thing => {
-        const categories = genreToMusicCategory[thing];
+    console.log('checkout the things: ', things);
+    await Promise.all(
+        things.map(async thing => {
+            const categories = genreToMusicCategory[thing];
 
-        console.log("categories", categories);
-console.log(categories.length)
-        for (const category of categories) {
-            const response = await fetch(`https://api.spotify.com/v1/search?q=${category}&type=playlist`, {
-                headers: { 'Authorization': `Bearer ${accessToken}` },
-            });
-            const data = await response.json();
+            for (const category of categories) {
+                const response = await fetch(`https://api.spotify.com/v1/search?q=${category}&type=playlist&limit=10`, {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
 
-            // console.log(data.playlists)
+                const data = await response.json();
 
-            if (data.playlists) {
-                console.log("hello world")
-                console.log(data.playlists)
-                playlists.push(data.playlists);
+                if (data.playlists.items) {
+                    const extractedPlaylistData = data.playlists.items.map(playlist => ({
+                        href: playlist.external_urls.spotify,
+                        description: playlist.description,
+                        name: playlist.name,
+                    }));
+
+                    playlists.push(...extractedPlaylistData);
+
+                }
             }
         }
-    })
+
+        )
+    )
 
 
 
@@ -72,8 +79,6 @@ console.log(categories.length)
     //         image_url: playlist.images[0]?.url, 
     //     });
     // }
-    console.log(playlists)
+    //console.log(playlists)
     return playlists;
 }
-
-// Separation of Concerns: The service file handles the business logic of fetching playlists and saving them to the database, while the routes file defines the HTTP endpoints and calls the service functions.
