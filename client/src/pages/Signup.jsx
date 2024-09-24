@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +29,10 @@ const Signup = () => {
 
     fetch("http://localhost:3001/api/Users", options)
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        navigate("/login");
+      })
       .catch((err) => console.error(err));
   };
 
@@ -60,7 +65,7 @@ const Signup = () => {
         />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        Register
       </Button>
       <Form.Text className="d-block">
         Already have an account?{" "}

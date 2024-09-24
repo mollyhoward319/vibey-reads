@@ -1,10 +1,9 @@
-// Mapping function for Google Books data
 export function mapGoogleBooksData(data) {
     return data.items.map(item => ({
-        book_id: item.id || null, // Assuming 'id' from Google Books can map to 'book_id'
         title: item.volumeInfo.title || null,
         author: item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : null,
-        categories: item.volumeInfo.categories ? item.volumeInfo.categories.join(', ') : null,
+        categories: item.volumeInfo.categories ? item.volumeInfo.categories.join(', ') : null, 
+        // .join(', ') convert this array into a single string that lists the authors separated by commas
         description: item.volumeInfo.description || null,
         language: item.volumeInfo.language || null,
         maturity_rating: item.volumeInfo.maturityRating === 'MATURE', // Set to true if 'MATURE', otherwise false
@@ -15,10 +14,8 @@ export function mapGoogleBooksData(data) {
     }));
 }
 
-// Mapping function for Spotify Playlists data
 export function mapSpotifyPlaylistsData(data) {
     return data.playlists.items.map(item => ({
-        music_id: item.id || null, // Assuming 'id' from Spotify maps to 'music_id'
         name: item.name || null, 
         description: item.description || null, 
         category: item.category || null, 
@@ -34,15 +31,5 @@ export function mapSpotifyCategoriesData(data) {
     return data.categories.items.map(item => ({
         id: item.id || null, 
         name: item.name || null, 
-    }));
-}
-
-// Mapping function for Vibes
-export function mapVibesData(vibes) {
-    return vibes.map(vibe => ({
-        vibe_id: vibe.vibe_id || null,
-        user_id: vibe.user_id || null,
-        book_id: vibe.book_id || null,
-        music_id: vibe.music_id || null,
     }));
 }
