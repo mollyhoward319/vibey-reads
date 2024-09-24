@@ -1,13 +1,14 @@
 import React from 'react';
 
 
+
 const Header = () => {
   return (
     <header className="header">
-      <h1>Let's get vibin'</h1>
+      <h2></h2>
       <nav>
         <ul>
-        {/* <li>Welcome, {username}!</li> Display the username */}
+        <li>Welcome, (Name)!</li> 
         </ul>
       </nav>
     </header>

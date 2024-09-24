@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { UserContext } from "../App";
+import logo from '../assets/VibeyReadsLogo.png';
 
 function NavBar() {
   const { isAuthenticated, setIsAuthenticated } = useContext(UserContext);
@@ -27,7 +28,7 @@ function NavBar() {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand href="/">Vibey Reads</Navbar.Brand>
+        <Navbar.Brand href="/">VIBEY READS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           {isAuthenticated ? (
@@ -37,10 +38,10 @@ function NavBar() {
             </Nav>
           ) : (
             <Nav className="ms-auto">
-              <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/signup">Signup</Nav.Link>
-              <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/create-vibe">What's Your Vibe?</Nav.Link>
+              <Nav.Link href="/login">LOGIN</Nav.Link>
+              <Nav.Link href="/signup">SIGNUP</Nav.Link>
+              <Nav.Link href="/profile">PROFILE</Nav.Link>
+            <Nav.Link href="/ReccVibes">What's Your Vibe?</Nav.Link>
           </Nav>
           )}
         </Navbar.Collapse>
