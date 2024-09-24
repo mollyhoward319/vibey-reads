@@ -7,7 +7,7 @@ const Header = () => {
       <h1>Let's get vibin'</h1>
       <nav>
         <ul>
-        <li>Welcome, (Name)!</li>
+        {/* <li>Welcome, {username}!</li> Display the username */}
         </ul>
       </nav>
     </header>
