@@ -48,7 +48,7 @@ const Login = () => {
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
        <img src={logo} alt="Vibey Reads Logo" className="logo" style={{ width: '750px', height: 'auto', marginBottom: '50px' }}/>
-
+<br></br>
         <Form.Label>Username</Form.Label>
         <Form.Control
           type="text"
