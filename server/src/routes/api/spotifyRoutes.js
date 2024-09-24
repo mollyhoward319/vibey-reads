@@ -1,12 +1,15 @@
-import { Router } from 'express';
-import { fetchPlaylistsByGenres } from '../../service/spotifyService.js';
-import { mapSpotifyCategoriesData } from '../../utils/dataMapping.js'; 
+import { Router } from "express";
+import fetch from "node-fetch";
+import {
+  mapSpotifyPlaylistsData,
+  mapSpotifyCategoriesData,
+} from "../../utils/dataMapping.js"; // Import the mapping functions
 
 const router = Router();
 
 // Health check route
-router.get('/health', (req, res) => {
-    res.status(200).send('Hello from the Spotify API Route');
+router.get("/health", (req, res) => {
+  res.status(200).send("Hello from the API Route");
 });
 
 // Route to get Spotify categories
@@ -55,4 +58,4 @@ router.get('/categories/:category', async (req, res) => {
 //     }
 // });
 
-export {router as musicRouter};
+export { router as musicRouter };
