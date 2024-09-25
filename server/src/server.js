@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.static("../client/dist"));
 app.use(routes);
 
 // Force true to drop/recreate table(s) on every sync
