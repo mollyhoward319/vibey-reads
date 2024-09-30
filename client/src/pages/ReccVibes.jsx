@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Dropdown } from 'react-bootstrap';
 import ChooseVibeImage from '../assets/ChooseVibe.png';
 import BookReccs from '../assets/BookReccs.png';
 import Header from '../components/Header';
@@ -17,9 +18,12 @@ function ReccVibes() {
     useEffect(() => {
         if (!showForm) {
             fetch('/api/music/categories/fantasy')
-                .then(response => response.json())
+                .then(response => {
+                    console.log("Res: ", response)
+                    return response.json()
+                })
                 .then(data => {
-                    console.log(data);
+                    console.log("API: ", data);
                     setPlaylists(data);
                 })
                 .catch(error => console.error('Error fetching playlists:', error));
@@ -41,48 +45,29 @@ function ReccVibes() {
                      <Header /> 
                 <Row>
                     <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
-                        <img
-                            src={ChooseVibeImage}
-                            alt="Choose Your Vibe"
-                            style={{ width: '50%', height: 'auto', borderRadius: '12px', marginBottom: '10px' }}
-                        />
+                        
+
+                    </Col>
+                    <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">Select Genre</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                { playlists.map((playlist, index) => (
+                                    <Dropdown.Item id={playlist.id} key={index}>{playlist.name}</Dropdown.Item>
+                                ))}
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
-                        <iframe
-                            style={{ borderRadius: '12px' }}
-                            src="https://open.spotify.com/embed/playlist/5IzzaghT2XcSRP2tdLaJYe?utm_source=generator"
-                            width="100%"
-                            height="352"
-                            frameBorder="0"
-                            allowFullScreen
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                        ></iframe>
+                        
                     </Col>
                     <Col xs={12} md={6} lg={4} style={{ padding: '10px' }}>
-                        <iframe
-                            style={{ borderRadius: '12px' }}
-                            src="https://open.spotify.com/embed/playlist/3rm4bpzAtzJz9i2DGZ9M0S?utm_source=generator"
-                            width="100%"
-                            height="352"
-                            frameBorder="0"
-                            allowFullScreen
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                        ></iframe>
+                        
                     </Col>
                     <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
-                    <iframe 
-                    style={{ borderRadius: '12px' }}
-                    src="https://open.spotify.com/embed/playlist/4luqfsi0N6TmWMm105ucFJ?utm_source=generator&theme=0" 
-                    width="100%" 
-                    height="352" 
-                    frameBorder="0" 
-                    allowfullscreen="" 
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                    loading="lazy"></iframe>
+                
                     </Col>
                 </Row>
                 <Row>
@@ -104,11 +89,7 @@ function ReccVibes() {
                 </Row>
                 <Row>
                     <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
-                        <img
-                            src={BookReccs}
-                            alt="Choose Your Vibe"
-                            style={{ width: '100%', height: 'auto', borderRadius: '12px', marginBottom: '10px' }}
-                        />
+                       
                     </Col>
                 </Row>
             </Container>

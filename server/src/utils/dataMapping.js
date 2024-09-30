@@ -34,5 +34,6 @@ export function mapSpotifyCategoriesData(data) {
     return data.categories.items.map(item => ({
         id: item.id || null, 
         name: item.name || null, 
+    //    href: item.href || null,
     }));
 }
