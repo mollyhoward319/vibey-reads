@@ -10,16 +10,18 @@ import Home from "./pages/Home.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Footer from "./components/Footer";
 import ReccVibes from "./pages/ReccVibes.jsx";
-
+import Header from "./components/Header";
 
 export const UserContext = createContext();
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState("");
 
   return (
     <div>
       <UserContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
         <BrowserRouter>
+        <Header username={username} />
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
