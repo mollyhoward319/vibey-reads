@@ -11,6 +11,7 @@ import ErrorPage from "./pages/ErrorPage.jsx";
 import Footer from "./components/Footer";
 import ReccVibes from "./pages/ReccVibes.jsx";
 
+
 export const UserContext = createContext();
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -31,7 +32,6 @@ function App() {
           <Footer />
         </BrowserRouter>
       </UserContext.Provider>
-      {/* <App1 /> */}
     </div>
   );
 }
