@@ -14,12 +14,13 @@ router.get("/health", (req, res) => {
 
 // Route to get Spotify categories
 router.get('/categories/:category', async (req, res) => {
+    console.log("Hit Spotify Route");
     try {
         const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': `Basic ${Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64')}`
+                'Authorization': `Basic ${Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_SECRET_ID}`).toString('base64')}`
             },
             body: 'grant_type=client_credentials'
         });
@@ -32,14 +33,20 @@ router.get('/categories/:category', async (req, res) => {
                 'Authorization': `Bearer ${accessToken}`
             }
         });
+
+        const results = await response.json();
+        //console.log("Spotify request: ", results.categories);
+
+        const categoryData = results.categories.items;
+        console.log("Category Data: ", categoryData);
+
         const cat = req.params.category;
 
-        const data = await fetchPlaylistsByGenres(cat);
+        // const data = await fetchPlaylistsByGenres(cat);
 
-        // console.log(data);
-
-        // const mappedData = mapSpotifyCategoriesData(data);
-        res.send(data);
+        const mappedData = mapSpotifyCategoriesData(results);
+        console.log("Fetch Playlist: ", mappedData);
+        res.send(mappedData);
     } catch (error) {
         console.error('Error fetching categories from Spotify API:', error);
         res.status(500).json({ error: 'Failed to fetch categories from Spotify API' });

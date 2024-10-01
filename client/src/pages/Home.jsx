@@ -21,5 +21,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// this is gonna get deleted for the profile.jsx

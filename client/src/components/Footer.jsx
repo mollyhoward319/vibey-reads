@@ -4,7 +4,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>Created by #girl-gang: Sabrina, Ronah, Dafne, & Molly  </p>
+      <p>Created by #girl-gang: Molly, Dafne, Sabrina, & Ronah  </p>
       <nav>
         <ul>
         {/* <li>Welcome, {username}!</li> Display the username */}

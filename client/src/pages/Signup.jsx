@@ -31,9 +31,31 @@ const Signup = () => {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
-        navigate("/login");
+        if (response.success) {
+        localStorage.setItem ('username', username);
+        
+          const loginData= {
+            username, 
+            password,
+          };
+          const loginOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginData),
+          };
+          fetch("http://localhost:3001/auth/login", loginOptions)
+            .then((loginResponse) => loginResponse.json())
+            .then((loginResponse) => {
+              console.log(loginResponse);
+              if (loginResponse.token) {
+                localStorage.setItem("token", loginResponse.token);
+                navigate('/ReccVibes');
+              }
+            })
+            .catch((err) => console.error('Login error:', err));
+          }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error('Login error:', err));
   };
 
   return (
