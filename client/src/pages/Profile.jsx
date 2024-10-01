@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import Draggable from 'react-draggable';
-import logo from '../assets/VibeyReadsLogo.png';
 import '../assets/App.css';
 import Header from '../components/Header';
-import Book from '../assets/CourtofMist.jpg'; 
+
 
 const Profile = () => {
     const [musicData, setMusicData] = useState([]);

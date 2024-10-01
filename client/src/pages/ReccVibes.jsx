@@ -6,18 +6,16 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Dropdown } from 'react-bootstrap';
-import ChooseVibeImage from '../assets/ChooseVibe.png';
-import BookReccs from '../assets/BookReccs.png';
 import Header from '../components/Header';
 
 function ReccVibes() {
-    const [showForm, setShowForm] = useState(false); //change this to false when you actually have data running to it
+    const [showForm, setShowForm] = useState(false);
     const [playlists, setPlaylists] = useState([]);
 
     // Fetch playlist data if we aren't showing the form
     useEffect(() => {
         if (!showForm) {
-            fetch('/api/music/categories/fantasy')
+            fetch('/api/music/categories/:category')
                 .then(response => {
                     console.log("Res: ", response)
                     return response.json()
@@ -36,18 +34,22 @@ function ReccVibes() {
 
     return (
         <>
-            <br />
+        
             {showForm ? (
                 <SelectYourVibe onSubmit={handleVibeSubmit} />
             ) : (
-               
+               <div>
+               <Header /> 
+      
                 <Container>
-                     <Header /> 
+                
                 <Row>
                     <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
                         
-
+               
                     </Col>
+                    </Row>
+                    <Row>
                     <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
                         <Dropdown>
                             <Dropdown.Toggle variant="success" id="dropdown-basic">Select Genre</Dropdown.Toggle>
@@ -93,7 +95,7 @@ function ReccVibes() {
                     </Col>
                 </Row>
             </Container>
-        
+            </div>
         )}
     </>
 );
