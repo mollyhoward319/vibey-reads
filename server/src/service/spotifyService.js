@@ -20,7 +20,7 @@ const genreToMusicCategory = {
 
 export async function fetchPlaylistsByGenres(genres) {
     const spotifyClientId = process.env.SPOTIFY_CLIENT_ID;
-    const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+    const spotifyClientSecret = process.env.SPOTIFY_SECRET_ID;
 
     // Step 1: Get Spotify Access Token
     const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
@@ -49,6 +49,7 @@ export async function fetchPlaylistsByGenres(genres) {
                 });
 
                 const data = await response.json();
+                console.log("________", data);
 
                 if (data.playlists.items) {
                     const extractedPlaylistData = data.playlists.items.map(playlist => ({
