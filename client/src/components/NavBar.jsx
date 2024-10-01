@@ -47,7 +47,7 @@ function NavBar() {
                 <Nav.Link>LOGIN</Nav.Link>
               </Link>
               <Link to="/signup">
-                <Nav.Link href="/">SIGNUP</Nav.Link>
+                <Nav.Link>SIGNUP</Nav.Link>
               </Link>
               <Link to="/profile">
                 <Nav.Link>PROFILE</Nav.Link>
