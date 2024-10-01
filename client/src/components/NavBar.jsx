@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import logo from "../assets/VibeyReadsLogo.png";
 
 function NavBar() {
-  console.log(UserContext);
   const { isAuthenticated, setIsAuthenticated } = useContext(UserContext);
 
   useEffect(() => {
