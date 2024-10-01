@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/VibeyReadsLogo.png";
 
 function NavBar() {
+  console.log(UserContext);
   const { isAuthenticated, setIsAuthenticated } = useContext(UserContext);
 
   useEffect(() => {
@@ -36,24 +37,31 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           {isAuthenticated ? (
             <Nav className="ms-auto">
-              <Link to="/profile">
-                <Nav.Link>Profile</Nav.Link>
-              </Link>
+              {/* <Link to="/profile"> */}
+                <Nav.Link to="/profile">Profile</Nav.Link>
+              {/* </Link> */}
               <Button onClick={() => handleLogout()}>Logout</Button>
             </Nav>
           ) : (
             <Nav className="ms-auto">
-              <Link to="/login">
-                <Nav.Link>LOGIN</Nav.Link>
+              <Link to="/login"> 
+              LOGIN
               </Link>
               <Link to="/signup">
-                <Nav.Link>SIGNUP</Nav.Link>
+                {/* <Nav.Link> */}
+                  SIGNUP
+                  {/* </Nav.Link> */}
               </Link>
               <Link to="/profile">
-                <Nav.Link>PROFILE</Nav.Link>
+                {/* <Nav.Link> */}
+                  PROFILE
+
+                {/* </Nav.Link> */}
               </Link>
               <Link to="/ReccVibes">
-                <Nav.Link>What's Your Vibe?</Nav.Link>
+                {/* <Nav.Link> */}
+                  What's Your Vibe?
+                  {/* </Nav.Link> */}
               </Link>
             </Nav>
           )}
