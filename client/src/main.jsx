@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import ReccVibes from './pages/ReccVibes';
 import Login from './pages/login';
 import Signup from './pages/Signup';
+import CreateVibes from './pages/CreateVibes';
 // Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
   {
@@ -35,9 +36,13 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: '/ReccVibes',
+        path: '/ReccVibes/:music/:books',
         element: <ReccVibes />,
       },
+      {
+        path: '/createvibes',
+        element: <CreateVibes />,
+      }
     ],
   },
 ]);

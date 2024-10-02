@@ -6,24 +6,9 @@ import Header from '../components/Header';
 
 
 const Profile = () => {
-    const [musicData, setMusicData] = useState([]);
-    const [accessToken, setAccessToken] = useState("");
 
-    useEffect(() => {
-        // Fetch music data from an API or a local source
-        const fetchMusicData = async () => {
-            try {
-                const response = await fetch('https://api.example.com/music'); // Replace with your API endpoint
-                const data = await response.json();
-                setMusicData(data);
-            } catch (error) {
-                console.error('Error fetching music data:', error);
-            }
-        };
-
-        fetchMusicData();
-    }, []);
-
+    // Im making the API calls in the client/api/callingVibes.js file. Do not make fetch calls to the back end here. 
+    
     return (
         <div className="profile">
             <Header /> 

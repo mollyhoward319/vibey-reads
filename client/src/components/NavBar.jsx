@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { UserContext } from "../App";
 import { Link } from "react-router-dom";
 import logo from "../assets/VibeyReadsLogo.png";
+
 function NavBar() {
   const { isAuthenticated, setIsAuthenticated } = useContext(UserContext);
   useEffect(() => {
@@ -49,9 +50,9 @@ function NavBar() {
                   PROFILE
                 {/* </Nav.Link> */}
               </Link>
-              <Link to="/ReccVibes">
+              <Link to="/createvibes">
                 {/* <Nav.Link> */}
-                  What's Your Vibe?
+                  Create Vibe 
                   {/* </Nav.Link> */}
               </Link>
             </Nav>

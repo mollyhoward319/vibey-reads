@@ -1,35 +1,56 @@
-import React, { useState } from 'react';
-import SelectYourVibe from "../components/createVibes"; // this imports the form for selecting your vibes
+// this file is the cards that render the recommendations for the user after we get a a response from the backend with Spotify and Google
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+import { useParams } from 'react-router-dom';
 
 function ReccommendedVibes() {
-    console.log("________________", SelectYourVibe);
-//     // const [showForm, setShowForm] = useState(false)
-//         // <Container>
-//         //     {/* <Row>
-//         //         <Col id="books">
-//         //             <Card style={{ width: '18rem' }}>
-//         //                 <Card.Img variant="top" src="${thumbnail}" />
-//         //                 <Card.Body>
-//         //                     <Card.Title>{title}</Card.Title> 
-//         //                     <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
-//         //                     <Card.Text>
-//         //                         {description}
-//         //                     </Card.Text>
-//         //                 </Card.Body>
-//         //                 <ListGroup className="list-group-flush">
-//         //                     <ListGroup.Item>{categories}</ListGroup.Item>
-//         //                 </ListGroup>
-//         //             </Card>
-//         //         </Col>
-//         //         <Col id="playlists">3 playlists here </Col>
-//         //     </Row> */}
-//         // </Container>
+
+const { music, books } = useParams();
+
+    useEffect(() => {
+        console.log("Books:", books);
+        console.log("Music:", music);
+    }, []);
+
+    return(
+        <Container>
+            <h1>ReccVibes Container</h1>
+            {/* <Row>
+                <Col>
+                    <SelectYourVibe />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    {books.map((book) => (
+                        <BookCard
+                            key={book.id}
+                            title={book.title}
+                            author={book.author}
+                            description={book.description}
+                            categories={book.categories}
+                            thumbnail={book.thumbnail}
+                        />
+                    ))}
+                </Col>
+                <Col>
+                    {playlists.map((playlist) => (
+                        <PlaylistCard
+                            key={playlist.id}
+                            title={playlist.title}
+                            description={playlist.description}
+                            categories={playlist.categories}
+                            external_url={playlist.external_url}
+                        />
+                    ))}
+                </Col>
+            </Row> */}
+        </Container>
+    );
 
 }
 
