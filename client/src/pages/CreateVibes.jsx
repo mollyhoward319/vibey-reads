@@ -6,7 +6,7 @@
 // The name of the vibe and the book will show in the colums on home page for reference.
 
 import React, { useState, useEffect } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Card, Row, Col, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function SelectYourVibe({ }) {
@@ -33,7 +33,7 @@ function SelectYourVibe({ }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         await callingVibes(genre);
-        navigate(`/ReccVibes/${JSON.stringify(music)}/${JSON.stringify(books)}`);
+        // navigate(`/ReccVibes/${JSON.stringify(music)}/${JSON.stringify(books)}`);
         
     };
 
@@ -199,6 +199,32 @@ function SelectYourVibe({ }) {
                 </div>
                 <Button type="submit">Submit</Button>
             </Form>
+            {/* <Row>
+                <Col>
+                <h2>Books</h2>
+            <ListGroup>
+                {books.slice(0, 3).map((book, index) => (
+                    <ListGroupItem key={index}>
+                        <h3>{book.title}</h3>
+                        <img src={book.thumbnail} alt={book.title} />
+                        <p>{book.description}</p>
+                    </ListGroupItem>
+                ))}
+            </ListGroup>
+                    
+                </Col>
+                <Col>
+                    <h2>Playlists</h2>
+                <ListGroup>
+                {music.slice(0, 3).map((playlist, index) => (
+                    <ListGroupItem key={index}>
+                        <h3>{playlist.name}</h3>
+                        <a href={playlist.href} target="_blank" rel="noopener noreferrer"></a>
+                    </ListGroupItem>
+                ))}
+            </ListGroup>
+                </Col>
+            </Row> */}
         </Container>
     );
 }
