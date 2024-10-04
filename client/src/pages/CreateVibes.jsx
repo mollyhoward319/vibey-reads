@@ -40,8 +40,8 @@ function SelectYourVibe({ }) {
     async function callingVibes(g) {
         const bookData = await fetchGoogleBooks(g);
         const musicData = await fetchSpotifyMusic(g);
-        setBooks([...books, bookData]);
-        setMusic([...music, musicData]); 
+        setBooks([...books, ...bookData]);
+        setMusic([...music, ...musicData]); 
     }
 
     const fetchGoogleBooks = async (params) => {
@@ -70,8 +70,12 @@ function SelectYourVibe({ }) {
 
     return (
         <Container>
+            <br />
+            <br />
+            <Row>
+            <h1 className= "text-center header-margin">Choose Your Vibe</h1>
             <Form method="post" onSubmit={handleSubmit}>
-                <div className="mb-3">
+                <div className="custom-checkbox mb-1">
                     <Form.Check
                         type="checkbox"
                         id="fiction"
@@ -80,16 +84,8 @@ function SelectYourVibe({ }) {
                         onChange={handleCheckboxChange}
                     />
                 </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="scienceFiction"
-                        value="scienceFiction"
-                        label="Science Fiction"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
+               
+                <div className="custom-checkbox mb-1">
                     <Form.Check
                         type="checkbox"
                         id="fantasy"
@@ -98,7 +94,7 @@ function SelectYourVibe({ }) {
                         onChange={handleCheckboxChange}
                     />
                 </div>
-                <div className="mb-3">
+                <div className="custom-checkbox mb-1">
                     <Form.Check
                         type="checkbox"
                         id="romance"
@@ -107,88 +103,7 @@ function SelectYourVibe({ }) {
                         onChange={handleCheckboxChange}
                     />
                 </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="thriller"
-                        value="thriller"
-                        label="Thriller"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="mystery"
-                        value="mystery"
-                        label="Mystery"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="horror"
-                        value="horror"
-                        label="Horror"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="biographyAndAutobiography"
-                        value="biographyAndAutobiography"
-                        label="Biography and Autobiography"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="historical"
-                        value="historical"
-                        label="Historical"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="selfHelp"
-                        value="selfHelp"
-                        label="Self Help"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="religion"
-                        value="religion"
-                        label="Religion"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="childrensBooks"
-                        value="childrensBooks"
-                        label="Children's Books"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <Form.Check
-                        type="checkbox"
-                        id="youngAdult"
-                        value="youngAdult"
-                        label="Young Adult"
-                        onChange={handleCheckboxChange}
-                    />
-                </div>
-                <div className="mb-3">
+                <div className="custom-checkbox mb-1">
                     <Form.Check
                         type="checkbox"
                         id="tragedy"
@@ -197,24 +112,140 @@ function SelectYourVibe({ }) {
                         onChange={handleCheckboxChange}
                     />
                 </div>
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="thriller"
+                        value="thriller"
+                        label="Thriller"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="mystery"
+                        value="mystery"
+                        label="Mystery"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="horror"
+                        value="horror"
+                        label="Horror"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+             
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="historical"
+                        value="historical"
+                        label="Historical"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="selfHelp"
+                        value="selfHelp"
+                        label="Self Help"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="religion"
+                        value="religion"
+                        label="Religion"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+              
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="youngAdult"
+                        value="youngAdult"
+                        label="Young Adult"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="childrensBooks"
+                        value="childrensBooks"
+                        label="Children's Books"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="scienceFiction"
+                        value="scienceFiction"
+                        label="Science Fiction"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+               
+                <div className="custom-checkbox mb-1">
+                    <Form.Check
+                        type="checkbox"
+                        id="biographyAndAutobiography"
+                        value="biographyAndAutobiography"
+                        label="Biography/Autobiography"
+                        onChange={handleCheckboxChange}
+                    />
+                </div>
+                <br />
                 <Button type="submit">Submit</Button>
             </Form>
-            {/* <Row>
-                <Col>
-                <h2>Books</h2>
-            <ListGroup>
+            </Row>
+            
+          <Row>
+            <Col>
+          <h2>Books</h2>
+          <Card style={{ width: '20rem', margin: '20px' }}></Card>
+          </Col>
+      
+           
+         
+         {/* <ListGroup>
                 {books.slice(0, 3).map((book, index) => (
                     <ListGroupItem key={index}>
                         <h3>{book.title}</h3>
                         <img src={book.thumbnail} alt={book.title} />
                         <p>{book.description}</p>
                     </ListGroupItem>
+                    </ListGroup>
+                           
+          </Col> */}
+          {/* <Col>
+          <CreateVibes />
+      </Col> */}
+          <Col>
+                    <h2>Playlists</h2>
+                    <Card style={{ width: '20rem', margin: '20px' }}></Card>
+                    </Col>
+          </Row>
+
+            {/* <Row>
+                <Col>
+              
+          
                 ))}
             </ListGroup>
                     
                 </Col>
-                <Col>
-                    <h2>Playlists</h2>
+                
                 <ListGroup>
                 {music.slice(0, 3).map((playlist, index) => (
                     <ListGroupItem key={index}>
@@ -225,6 +256,9 @@ function SelectYourVibe({ }) {
             </ListGroup>
                 </Col>
             </Row> */}
+           <Row>
+            
+                </Row>
         </Container>
     );
 }

@@ -1,13 +1,8 @@
 // this file is the cards that render the recommendations for the user after we get a a response from the backend with Spotify and Google
 import React, { useState, useEffect } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { Dropdown } from 'react-bootstrap';
-import Header from '../components/Header';
+import SelectYourVibe from './CreateVibes';
 
 function ReccommendedVibes() {
 
@@ -16,44 +11,44 @@ const { music, books } = useParams();
     useEffect(() => {
         console.log("Books:", books);
         console.log("Music:", music);
-    }, []);
+    }, [books, music]);
 
     return(
         <Container>
-            <h1>ReccVibes Container</h1>
-            {/* <Row>
+               <Row>
                 <Col>
-                    <SelectYourVibe />
+                <h2>Books</h2>
+            <ListGroup>
+                {books && books.slice(0, 3).map((book, index) => (
+                    <ListGroupItem key={index}>
+                        <h3>{book.title}</h3>
+                        <img src={book.thumbnail} alt={book.title} />
+                        <p>{book.description}</p>
+                    </ListGroupItem>
+                ))}
+            </ListGroup>
+                    
+                </Col>
+                <Col>
+                    <h2>Playlists</h2>
+                <ListGroup>
+                {music && music.slice(0, 3).map((playlist, index) => (
+                    <ListGroupItem key={index}>
+                        <h3>{playlist.name}</h3>
+                        <a href={playlist.href} target="_blank" rel="noopener noreferrer"></a>
+                    </ListGroupItem>
+                ))}
+            </ListGroup>
                 </Col>
             </Row>
+            <h1>ReccVibes Container</h1>
             <Row>
                 <Col>
-                    {books.map((book) => (
-                        <BookCard
-                            key={book.id}
-                            title={book.title}
-                            author={book.author}
-                            description={book.description}
-                            categories={book.categories}
-                            thumbnail={book.thumbnail}
-                        />
-                    ))}
+                    <CreateVibes />
                 </Col>
-                <Col>
-                    {playlists.map((playlist) => (
-                        <PlaylistCard
-                            key={playlist.id}
-                            title={playlist.title}
-                            description={playlist.description}
-                            categories={playlist.categories}
-                            external_url={playlist.external_url}
-                        />
-                    ))}
-                </Col>
-            </Row> */}
+            </Row>
         </Container>
     );
-
 }
 
 export default ReccommendedVibes;
@@ -64,91 +59,61 @@ export default ReccommendedVibes;
 // Playlist Cards: Playlist Title (hyperlink to external_url), image, description, categories, number of tracks, is/not mature, save button or pass button
 // NOTE. USERS ARE ONLY ABLE TO SELECT 1 BOOK AND 1 PLAYLIST TO SAVE.
 // consideration for character count limit in description of books and playlist. A read more button hyperlined to gooogle books
-        if (!showForm) {
-            fetch('/api/music/categories/fantasy')
-                .then(response => {
-                    console.log("Res: ", response)
-                    return response.json()
-                })
-                .then(data => {
-                    console.log("API: ", data);
-                    setPlaylists(data);
-                })
-                .catch(error => console.error('Error fetching playlists:', error));
-        }
-    }, [showForm]);
+       
 
-    const handleVibeSubmit = (vibes) => {
-        setShowForm(false);
-    };
-
-    return (
-        <>
+//     return (
+//         <>
         
-            {showForm ? (
-                <SelectYourVibe onSubmit={handleVibeSubmit} />
-            ) : (
-               <div>
-               <Header /> 
+//             {showForm ? (
+//                 <SelectYourVibe onSubmit={handleVibeSubmit} />
+//             ) : (
+//                <div>
+//                <Header /> 
       
-                <Container>
+//                 <Container>
                 
-                <Row>
-                    <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
+//                 <Row>
+//                     <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
                         
                
-                    </Col>
-                    </Row>
-                    <Row>
-                    <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">Select Genre</Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                { playlists.map((playlist, index) => (
-                                    <Dropdown.Item id={playlist.id} key={index}>{playlist.name}</Dropdown.Item>
-                                ))}
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
+//                     </Col>
+//                     </Row>
+//                     <Row>
+//                     <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
+//                         <Dropdown>
+//                             <Dropdown.Toggle variant="success" id="dropdown-basic">Select Genre</Dropdown.Toggle>
+//                             <Dropdown.Menu>
+//                                 { playlists.map((playlist, index) => (
+//                                     <Dropdown.Item id={playlist.id} key={index}>{playlist.name}</Dropdown.Item>
+//                                 ))}
+//                             </Dropdown.Menu>
+//                         </Dropdown>
+//                     </Col>
+//                 </Row>
+//                 <Row>
+//                     <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
                         
-                    </Col>
-                    <Col xs={12} md={6} lg={4} style={{ padding: '10px' }}>
+//                     </Col>
+//                     <Col xs={12} md={6} lg={4} style={{ padding: '10px' }}>
                         
-                    </Col>
-                    <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
+//                     </Col>
+//                     <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
                 
-                    </Col>
-                </Row>
-                <Row>
-                    <Col id="books">
-                        {playlists.map((playlist, index) => (
-                            <Card key={index} style={{ width: '18rem', padding: '10px' }}>
-                                <Card.Img variant="top" src={playlist.thumbnail} />
-                                <Card.Body>
-                                    <Card.Title>{playlist.title}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">{playlist.author}</Card.Subtitle>
-                                    <Card.Text>{playlist.description}</Card.Text>
-                                </Card.Body>
-                                <ListGroup className="list-group-flush">
-                                    <ListGroup.Item>{playlist.categories}</ListGroup.Item>
-                                </ListGroup>
-                            </Card>
-                        ))}
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
+//                     </Col>
+//                 </Row>
+//                 <Row>
+                
+//                 </Row>
+//                 <Row>
+//                     <Col xs={12} style={{ padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center'  }}>
                        
-                    </Col>
-                </Row>
-            </Container>
-            </div>
-        )}
-    </>
-);
-};
+//                     </Col>
+//                 </Row>
+//             </Container>
+//             </div>
+//         )}
+//     </>
+// );
+// };
 
-export default ReccVibes;
+// export default ReccVibes;
