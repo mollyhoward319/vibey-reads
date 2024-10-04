@@ -4,6 +4,7 @@ import {
   mapSpotifyPlaylistsData,
   mapSpotifyCategoriesData,
 } from "../../utils/dataMapping.js"; // Import the mapping functions
+import { fetchPlaylistsByGenres } from "../../service/spotifyService.js";
 
 const router = Router();
 

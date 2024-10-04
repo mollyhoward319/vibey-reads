@@ -1,6 +1,6 @@
 export function mapGoogleBooksData(data) {
 
-    return data[0].map(item => ({
+    return data.items.map(item => ({
 
         book_id: item.id || null, // Assuming 'id' from Google Books can map to 'book_id'
         title: item.volumeInfo.title || null,

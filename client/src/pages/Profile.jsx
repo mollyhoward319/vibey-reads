@@ -1,37 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import Draggable from 'react-draggable';
-import logo from '../assets/VibeyReadsLogo.png';
 import '../assets/App.css';
 import Header from '../components/Header';
-import Book from '../assets/CourtofMist.jpg'; 
+
 
 const Profile = () => {
-    const [musicData, setMusicData] = useState([]);
-    const [accessToken, setAccessToken] = useState("");
 
-    useEffect(() => {
-        // Fetch music data from an API or a local source
-        const fetchMusicData = async () => {
-            try {
-                const response = await fetch('https://api.example.com/music'); // Replace with your API endpoint
-                const data = await response.json();
-                setMusicData(data);
-            } catch (error) {
-                console.error('Error fetching music data:', error);
-            }
-        };
-
-        fetchMusicData();
-    }, []);
-
+    // Im making the API calls in the client/api/callingVibes.js file. Do not make fetch calls to the back end here. 
+    
     return (
         <div className="profile">
             <Header /> 
             <Container>
                 <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Col xs={12} md={6} lg={4} style={{ padding: '12px', textAlign: 'center' }}>
-                   
+                        
                     </Col>
                     <Col xs={12} md={6} lg={4} style={{ padding: '12px' }}>
                       

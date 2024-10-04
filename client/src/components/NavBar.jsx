@@ -1,6 +1,3 @@
-// todo: create nav bar that is static and in every part of the app except login
-// will have: User Name or Username as the brand, a button for Whats Your Vibe? Maybe logo too
-
 import { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -12,20 +9,17 @@ import logo from "../assets/VibeyReadsLogo.png";
 
 function NavBar() {
   const { isAuthenticated, setIsAuthenticated } = useContext(UserContext);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       setIsAuthenticated(true);
     }
   }, [isAuthenticated]);
-
   const handleLogout = () => {
     console.log("triggered");
     setIsAuthenticated(false);
     localStorage.removeItem("token");
   };
-
   return (
     <Navbar expand="lg">
       <Container>
@@ -43,7 +37,7 @@ function NavBar() {
             </Nav>
           ) : (
             <Nav className="ms-auto">
-              <Link to="/login"> 
+              <Link to="/login">
               LOGIN
               </Link>
               <Link to="/signup">
@@ -54,12 +48,11 @@ function NavBar() {
               <Link to="/profile">
                 {/* <Nav.Link> */}
                   PROFILE
-
                 {/* </Nav.Link> */}
               </Link>
-              <Link to="/ReccVibes">
+              <Link to="/createvibes">
                 {/* <Nav.Link> */}
-                  What's Your Vibe?
+                  Create Vibe 
                   {/* </Nav.Link> */}
               </Link>
             </Nav>
@@ -69,5 +62,4 @@ function NavBar() {
     </Navbar>
   );
 }
-
 export default NavBar;
