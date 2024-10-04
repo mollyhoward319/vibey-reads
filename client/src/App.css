@@ -57,3 +57,25 @@ button {
 .error-wrapper {
   text-align: center;
 }
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox input {
+  margin-right: 0.5rem; /* Adjust as needed */
+  margin-bottom: 0.2rem;
+}
+.header-margin {
+  margin-bottom: 0.5rem; /* Adjust this value as needed */
+}
+
+@media (max-width: 600px) {
+  .navbar a {
+    padding: 0.25rem 0.5rem; /* Adjust padding for smaller links */
+    font-size: 0.875rem;
+   } /* Adjust font size for smaller links */
+    .header-margin {
+      display: block;
+    }
+  }

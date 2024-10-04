@@ -125,6 +125,9 @@ a.login-here {
   width: 50px; /* Adjust the width as needed */
   height: auto; /* Maintain the aspect ratio */
 }
+.header-margin {
+  margin-bottom: -4rem; /* Adjust this value as needed */
+}
 
 .logo-image {
   width: 200px; /* Adjust the width to make the logo smaller */
@@ -170,6 +173,9 @@ a.login-here {
 @media (max-width: 600px) {
   .navbar a {
     padding: 0.25rem 0.5rem; /* Adjust padding for smaller links */
-    font-size: 0.875rem; /* Adjust font size for smaller links */
+    font-size: 0.875rem;
+   } /* Adjust font size for smaller links */
+    .header-margin {
+      display: block;
+    }
   }
-}
