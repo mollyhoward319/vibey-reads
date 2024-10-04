@@ -1,8 +1,6 @@
 import { useState, createContext } from "react";
 import { Outlet } from 'react-router-dom';
 import NavBar from './components/NavBar';
-
-// TODO: Import UserContext stuff
 export const UserContext = createContext();
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

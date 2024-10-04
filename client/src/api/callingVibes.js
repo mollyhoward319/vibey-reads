@@ -1,5 +1,5 @@
 import React from "react";
-import SelectYourVibe from "../pages/createVibes.jsx";  
+import SelectYourVibe, {selectedVibes} from "../components/createVibes.jsx";  
 import RecommendedVibes from "../pages/ReccVibes.jsx";
 
 
