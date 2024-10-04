@@ -1,9 +1,9 @@
 // CommonJS and Modules
 import dotenv from "dotenv";
-dotenv.config();
 import express from "express";
 import sequelize from "./src/config/connection.js";
 
+dotenv.config();
 import cors from "cors";
 
 import routes from "./src/routes/index.js";

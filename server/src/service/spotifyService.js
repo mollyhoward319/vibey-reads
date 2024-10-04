@@ -49,7 +49,7 @@ export async function fetchPlaylistsByGenres(genres) {
                 });
 
                 const data = await response.json();
-                console.log("________", data);
+                // console.log("________", data);
 
                 if (data.playlists.items) {
                     const extractedPlaylistData = data.playlists.items.map(playlist => ({
