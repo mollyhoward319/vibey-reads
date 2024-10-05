@@ -70,3 +70,6 @@ form {
     background-color: #0056b3; 
   }
   
+  .custom-checkbox .form-check-input {
+    margin-right: 5px; /* Adjust the spacing as needed */
+}

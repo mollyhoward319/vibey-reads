@@ -51,6 +51,13 @@ form {
   color: #2c1a1d;
 }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
 form input,
 form label,
 form button {
@@ -175,7 +182,17 @@ a.login-here {
     padding: 0.25rem 0.5rem; /* Adjust padding for smaller links */
     font-size: 0.875rem;
    } /* Adjust font size for smaller links */
-    .header-margin {
+    .header-margin{
       display: block;
     }
   }
+
+  .custom-checkbox .form-check-input {
+    margin-right: 10px; /* Adjust the spacing as needed */
+}
+
+.small-button {
+  padding: 5px 10px; /* Adjust the padding to make the button smaller */
+  font-size: 16px; /* Adjust the font size to make the text smaller */
+  width: auto;
+}
