@@ -63,11 +63,15 @@ button {
 }
 
 .custom-checkbox input {
-  margin-right: 0.5rem; /* Adjust as needed */
+  margin-right: 0.5rem; 
   margin-bottom: 0.2rem;
 }
 .header-margin {
-  margin-bottom: 0.5rem; /* Adjust this value as needed */
+  margin-bottom: 0.5rem; 
+}
+
+.navbar a {
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
