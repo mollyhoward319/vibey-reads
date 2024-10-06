@@ -39,7 +39,7 @@ const Login = () => {
           localStorage.setItem("token", response.token);
           localStorage.setItem("username", username);
           setIsAuthenticated(true);
-          navigate('/ReccVibes');
+          navigate('/CreateVibes');
         }
       })
       .catch((err) => console.error(err));
