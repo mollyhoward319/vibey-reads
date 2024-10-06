@@ -6,9 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <p>Created by #girl-gang: Molly, Dafne, Sabrina, & Ronah  </p>
       <nav>
-        <ul>
-        {/* <li>Welcome, {username}!</li> Display the username */}
-        </ul>
+      
       </nav>
     </footer>
   );

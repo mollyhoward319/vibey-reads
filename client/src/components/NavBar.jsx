@@ -24,7 +24,7 @@ function NavBar() {
     <Navbar expand="lg">
       <Container>
         <Link to="/">
-          <Navbar.Brand>VIBEY READS</Navbar.Brand>
+          <Navbar.Brand style={{ color: "white" }}>VIBEY READS</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

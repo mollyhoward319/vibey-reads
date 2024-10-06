@@ -25,8 +25,7 @@ function SelectYourVibe({}) {
   const [genre, setGenre] = useState([]);
   const [books, setBooks] = useState([]);
   const [music, setMusic] = useState([]);
-
-
+  const navigate = useNavigate();
 
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
@@ -46,6 +45,7 @@ function SelectYourVibe({}) {
     const bookData = await fetchGoogleBooks(g);
     setBooks(bookData.items || []); // Store the fetched books data in state
     const musicData = await fetchSpotifyMusic(g);
+    
     // Handle the fetched data as needed
 };
 
